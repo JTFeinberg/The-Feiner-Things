@@ -1,7 +1,10 @@
+import Nav from './Nav'
+
 const Header = () => (
   <div>
     <div className="bar">
       <a href="">The Feiner Things</a>
+      <Nav />
     </div>
     <div className="sub-bar">
       <p>Search</p>
