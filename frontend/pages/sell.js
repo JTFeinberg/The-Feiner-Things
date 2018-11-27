@@ -1,9 +1,14 @@
-const Sell = props => {
-    return (
-        <div>
-            <p>Sell!</p>
-        </div>
-    )
-}
+import Link from "next/link";
 
-export default Sell
+const Sell = props => {
+  return (
+    <div>
+      <p>Sell!</p>
+      <Link href="/">
+        <a>Home</a>
+      </Link>
+    </div>
+  );
+};
+
+export default Sell;
