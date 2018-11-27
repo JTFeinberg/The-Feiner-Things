@@ -11,11 +11,11 @@ const StyledPage = styled.div`
 export default class Page extends Component {
   render() {
     return (
-      <div>
+      <StyledPage>
         <Meta />
         <Header />
         {this.props.children}
-      </div>
+      </StyledPage>
     );
   }
 }
