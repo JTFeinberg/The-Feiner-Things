@@ -5,7 +5,7 @@ class MyApp extends App {
     const { Component } = this.props;
     return (
       <Container>
-        <p>Hey! Lets put this on every page!</p>
+        
         <Component />
       </Container>
     );
