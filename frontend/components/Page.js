@@ -35,7 +35,7 @@ injectGlobal`
     box-sizing: border-box;
     font-size: 10px;
   }
-  *, *:before, *:after {
+  *, *::before, *::after {
     box-sizing: inherit;
   }
   body {
