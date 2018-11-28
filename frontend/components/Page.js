@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import styled, { ThemeProvider, injectGlobal } from "styled-components";
 import Header from "./Header";
 import Meta from "./Meta";
-import styled, { ThemeProvider, injectGlobal } from "styled-components";
 
 const theme = {
   red: "#FF0000",
@@ -22,6 +22,13 @@ const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
+`;
+
+injectGlobal`
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
 `;
 
 export default class Page extends Component {
