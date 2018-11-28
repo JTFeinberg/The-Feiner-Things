@@ -1,12 +1,10 @@
-type User {
-  id: ID!
+type Dog {
   name: String!
 }
-
 type Mutation {
   hi: String
 }
 
 type Query {
-  hi: String
+  dogs: [dogs]!
 }
