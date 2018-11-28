@@ -27,7 +27,7 @@ const Inner = styled.div`
 export default class Page extends Component {
   render() {
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
           <Header />
