@@ -29,6 +29,9 @@ injectGlobal`
     box-sizing: border-box;
     font-size: 10px;
   }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 `;
 
 export default class Page extends Component {
