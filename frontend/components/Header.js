@@ -13,11 +13,11 @@ const Logo = styled.h1`
 const Header = () => (
   <div>
     <div className="bar">
-      <h1>
+      <Logo>
         <Link href="/">
           <a>The Feiner Things</a>
         </Link>
-      </h1>
+      </Logo>
       <Nav />
     </div>
     <div className="sub-bar">
