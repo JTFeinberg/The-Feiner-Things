@@ -21,7 +21,15 @@ const Logo = styled.h1`
   }
 `;
 
-const StyledHeader = styled.header``;
+const StyledHeader = styled.header`
+  .bar {
+    border-bottom: 10px solid ${props => props.theme.black};
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+`;
 
 const Header = () => (
   <StyledHeader>
