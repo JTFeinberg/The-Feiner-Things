@@ -32,6 +32,12 @@ injectGlobal`
   *, *:before, *:after {
     box-sizing: inherit;
   }
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2;
+  }
 `;
 
 export default class Page extends Component {
