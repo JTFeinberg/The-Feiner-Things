@@ -33,6 +33,11 @@ const StyledHeader = styled.header`
       justify-content: center;
     }
   }
+  .sub-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid ${props => props.theme.lightgrey};
+  }
 `;
 
 const Header = () => (
