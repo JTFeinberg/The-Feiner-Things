@@ -1,3 +1,6 @@
+# This is where your model definitions live.
+# Every time you update anyhting here, you MUST deploy to prisma to update the db
+
 type User {
   id: ID! @unique
   name: String!
