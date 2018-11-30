@@ -5,10 +5,10 @@ import withData from '../lib/withData'
 
 class MyApp extends App {
   render() {
-    const { Component } = this.props
+    const { Component, apollo } = this.props
     return (
       <Container>
-        <ApolloProvider>
+        <ApolloProvider client={apollo}>
           <Page>
             <Component />
           </Page>
