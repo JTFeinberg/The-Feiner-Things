@@ -23,6 +23,7 @@ export default class Item extends Component {
             <a>{item.title}</a>
           </Link>
         </Title>
+        <PriceTag>{item.price}</PriceTag>
       </ItemStyles>
     )
   }
