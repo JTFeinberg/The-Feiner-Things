@@ -39,51 +39,55 @@ export default class CreateItem extends Component {
   }
   render() {
     return (
-      <Form>
-        <fieldset
-          onSubmit={e => {
-            e.preventDefault()
-          }}>
-          <label htmlFor="title">
-            Title
-            <input
-              type="text"
-              id="title"
-              name="title"
-              placeholder="Title"
-              required
-              value={this.state.title}
-              onChange={this.handleChange}
-            />
-          </label>
+      <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+        {(createItem, { loading, error }) => (
+          <Form>
+            <fieldset
+              onSubmit={e => {
+                e.preventDefault()
+              }}>
+              <label htmlFor="title">
+                Title
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Title"
+                  required
+                  value={this.state.title}
+                  onChange={this.handleChange}
+                />
+              </label>
 
-          <label htmlFor="price">
-            Price
-            <input
-              type="number"
-              id="price"
-              name="price"
-              placeholder="Price"
-              required
-              value={this.state.price}
-              onChange={this.handleChange}
-            />
-          </label>
+              <label htmlFor="price">
+                Price
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  placeholder="Price"
+                  required
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                />
+              </label>
 
-          <label htmlFor="description">
-            Description
-            <textarea
-              id="description"
-              name="description"
-              placeholder="Enter A Description"
-              required
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </Form>
+              <label htmlFor="description">
+                Description
+                <textarea
+                  id="description"
+                  name="description"
+                  placeholder="Enter A Description"
+                  required
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <button type="submit">Submit</button>
+            </fieldset>
+          </Form>
+        )}
+      </Mutation>
     )
   }
 }
