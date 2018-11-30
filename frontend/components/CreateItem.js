@@ -20,7 +20,10 @@ export default class CreateItem extends Component {
   render() {
     return (
       <Form>
-        <fieldset>
+        <fieldset
+          onSubmit={e => {
+            e.preventDefault()
+          }}>
           <label htmlFor="title">
             Title
             <input
@@ -58,6 +61,7 @@ export default class CreateItem extends Component {
               onChange={this.handleChange}
             />
           </label>
+          <button type="submit">Submit</button>
         </fieldset>
       </Form>
     )
