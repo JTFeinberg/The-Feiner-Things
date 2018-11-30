@@ -6,6 +6,10 @@ import formatMoney from '../lib/formatMoney'
 
 export default class CreateItem extends Component {
   render() {
-    return <div />
+    return (
+      <Form>
+        <h2>Sell an Item.</h2>
+      </Form>
+    )
   }
 }
