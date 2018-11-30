@@ -30,6 +30,7 @@ export default class CreateItem extends Component {
               placeholder="Title"
               required
               value={this.state.title}
+              onChange={this.handleChange}
             />
           </label>
         </fieldset>
