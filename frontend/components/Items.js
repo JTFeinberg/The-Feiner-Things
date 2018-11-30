@@ -20,6 +20,12 @@ export default class Items extends Component {
     return (
       <div>
         <p>Items!</p>
+        <Query query={ALL_ITEMS_QUERY}>
+          {payload => {
+            console.log(payload)
+            return <p>Hey! I'm the child of a query!!</p>
+          }}
+        </Query>
       </div>
     )
   }
