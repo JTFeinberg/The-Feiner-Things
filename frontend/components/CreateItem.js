@@ -5,6 +5,13 @@ import Form from './styles/Form'
 import formatMoney from '../lib/formatMoney'
 
 export default class CreateItem extends Component {
+  state = {
+    title: '',
+    description: '',
+    image: '',
+    largeImage: '',
+    price: 0
+  }
   render() {
     return (
       <Form>
@@ -17,6 +24,7 @@ export default class CreateItem extends Component {
               name="title"
               placeholder="Title"
               required
+              value={this.state.title}
             />
           </label>
         </fieldset>
