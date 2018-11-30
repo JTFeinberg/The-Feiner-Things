@@ -12,6 +12,11 @@ export default class CreateItem extends Component {
     largeImage: '',
     price: 0
   }
+  handleChange = e => {
+    const { name, type, value } = e.target
+    const val = type === 'number' ? parseFloat(value) : value
+    this.setState({ [name]: val })
+  }
   render() {
     return (
       <Form>
