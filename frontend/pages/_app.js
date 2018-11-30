@@ -8,9 +8,11 @@ class MyApp extends App {
     const { Component } = this.props
     return (
       <Container>
-        <Page>
-          <Component />
-        </Page>
+        <ApolloProvider>
+          <Page>
+            <Component />
+          </Page>
+        </ApolloProvider>
       </Container>
     )
   }
