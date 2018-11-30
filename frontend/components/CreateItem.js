@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Form from './styles/Form'
 import formatMoney from '../lib/formatMoney'
+import Error from './ErrorMessage'
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
@@ -46,6 +47,7 @@ export default class CreateItem extends Component {
               onSubmit={e => {
                 e.preventDefault()
               }}>
+              <Error error={error} />
               <label htmlFor="title">
                 Title
                 <input
