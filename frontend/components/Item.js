@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Title from './styles/Title'
 import ItemStyles from './styles/ItemStyles'
 import PriceTag from './styles/PriceTag'
+import formatMoney from '../lib/formatMoney'
 
 export default class Item extends Component {
   static propTypes = {
@@ -23,7 +24,7 @@ export default class Item extends Component {
             <a>{item.title}</a>
           </Link>
         </Title>
-        <PriceTag>{item.price}</PriceTag>
+        <PriceTag>{formatMoney(item.price)}</PriceTag>
       </ItemStyles>
     )
   }
