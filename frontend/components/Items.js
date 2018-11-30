@@ -14,11 +14,14 @@ const ALL_ITEMS_QUERY = gql`
     }
   }
 `
+const Center = styled.div`
+  text-align: center;
+`
 
 export default class Items extends Component {
   render() {
     return (
-      <div>
+      <Center>
         <p>Items!</p>
         <Query query={ALL_ITEMS_QUERY}>
           {({ data, error, loading }) => {
@@ -27,7 +30,7 @@ export default class Items extends Component {
             return <p>I found {data.items.length} items</p>
           }}
         </Query>
-      </div>
+      </Center>
     )
   }
 }
