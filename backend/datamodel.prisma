@@ -1,5 +1,21 @@
+# This is where your model definitions live.
+# Every time you update anyhting here, you MUST deploy to prisma to update the db
+
 type User {
   id: ID! @unique
   name: String!
   email: String!
+}
+
+type Item {
+  id: ID! @unique
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  # DateTime is not native to graphQL, It is a Prisma thing!!!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  # user: User!
 }
