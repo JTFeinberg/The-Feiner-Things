@@ -8,7 +8,18 @@ export default class CreateItem extends Component {
   render() {
     return (
       <Form>
-        <h2>Sell an Item.</h2>
+        <fieldset>
+          <label htmlFor="title">
+            Title
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Title"
+              required
+            />
+          </label>
+        </fieldset>
       </Form>
     )
   }
