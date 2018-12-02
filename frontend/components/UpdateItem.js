@@ -44,8 +44,11 @@ export default class UpdateItem extends Component {
     this.setState({ [name]: val })
   }
   render() {
-    const { title, description, price, image } = this.state
+    const { title, description, price } = this.state
     return (
+      <Query query={SINGLE_ITEM_QUERY} variables={{id: this.props.id}}>
+      
+      </Query>
       <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { loading, error }) => (
           <Form
