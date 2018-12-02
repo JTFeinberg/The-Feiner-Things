@@ -44,11 +44,12 @@ export default class UpdateItem extends Component {
     this.setState({ [name]: val })
   }
   render() {
-    const { title, description, price } = this.state
+    // const { title, description, price } = this.state
     return (
       <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
         {({ data, loading }) => {
           if (loading) return <p>Loading...</p>
+          const { title, description, price } = data.item
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
               {(createItem, { loading, error }) => (
@@ -74,7 +75,7 @@ export default class UpdateItem extends Component {
                         name="title"
                         placeholder="Title"
                         required
-                        value={title}
+                        defaultValue={title}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -87,7 +88,7 @@ export default class UpdateItem extends Component {
                         name="price"
                         placeholder="Price"
                         required
-                        value={price}
+                        defaultValue={price}
                         onChange={this.handleChange}
                       />
                     </label>
@@ -99,7 +100,7 @@ export default class UpdateItem extends Component {
                         name="description"
                         placeholder="Enter A Description"
                         required
-                        value={description}
+                        defaultValue={description}
                         onChange={this.handleChange}
                       />
                     </label>
