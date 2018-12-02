@@ -6,8 +6,8 @@ import Form from './styles/Form'
 import formatMoney from '../lib/formatMoney'
 import Error from './ErrorMessage'
 
-const CREATE_ITEM_MUTATION = gql`
-  mutation CREATE_ITEM_MUTATION(
+const UPDATE_ITEM_MUTATION = gql`
+  mutation UPDATE_ITEM_MUTATION(
     $title: String!
     $description: String!
     $image: String
@@ -63,7 +63,7 @@ export default class UpdateItem extends Component {
   render() {
     const { title, description, price, image } = this.state
     return (
-      <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+      <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { loading, error }) => (
           <Form
             onSubmit={async e => {
@@ -138,4 +138,4 @@ export default class UpdateItem extends Component {
   }
 }
 
-export { CREATE_ITEM_MUTATION }
+export { UPDATE_ITEM_MUTATION }
