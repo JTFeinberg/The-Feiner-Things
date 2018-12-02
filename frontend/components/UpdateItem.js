@@ -38,6 +38,9 @@ export default class UpdateItem extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
+  updateItem = (e, mutation) => {
+    e.preventDefault()
+  }
   render() {
     // const { title, description, price } = this.state
     return (
@@ -48,18 +51,7 @@ export default class UpdateItem extends Component {
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
               {(updateItem, { loading, error }) => (
-                <Form
-                  onSubmit={async e => {
-                    //Stop form from submitting
-                    e.preventDefault()
-                    //call the mutation
-                    const res = await createItem()
-                    //reroute user to single item page of newly created item
-                    Router.push({
-                      pathname: '/item',
-                      query: { id: res.data.createItem.id }
-                    })
-                  }}>
+                <Form onSubmit={e => this.updateItem(e, updateItem)}>
                   <Error error={error} />
                   <fieldset disabled={loading} aria-busy={loading}>
                     <label htmlFor="title">
