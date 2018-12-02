@@ -60,6 +60,18 @@ export default class CreateItem extends Component {
             }}>
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  //   value={this.state.image}
+                  onChange={this.uploadFile}
+                />
+              </label>
               <label htmlFor="title">
                 Title
                 <input
