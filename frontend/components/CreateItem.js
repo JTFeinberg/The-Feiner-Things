@@ -39,6 +39,9 @@ export default class CreateItem extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
+  uploadFile = e => {
+    console.log('Uploading File...')
+  }
   render() {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
