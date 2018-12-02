@@ -18,11 +18,11 @@ const SINGLE_ITEM_QUERY = gql`
 `
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
-    $title: String!
-    $description: String!
-    $price: Int!
+    $title: String
+    $description: String
+    $price: Int
   ) {
-    createItem(title: $title, description: $description, price: $price) {
+    updateItem(title: $title, description: $description, price: $price) {
       id
       title
       description
