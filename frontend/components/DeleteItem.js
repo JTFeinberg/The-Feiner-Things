@@ -11,6 +11,10 @@ const DELETE_ITEM_MUTATION = gql`
 `
 
 export default class DeleteItem extends Component {
+  update = (cache, payload) => {
+    //manually update the cahce on the client so it matches the server
+    //1. Read the cahce for the items we want
+  }
   render() {
     return (
       <Mutation
