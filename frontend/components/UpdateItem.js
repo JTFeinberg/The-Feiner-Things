@@ -39,27 +39,6 @@ export default class UpdateItem extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
-  uploadFile = async e => {
-    console.log('Uploading File...')
-    const { files } = e.target
-    const data = new FormData()
-    data.append('file', files[0])
-    //Argument needed by cloudinary
-    data.append('upload_preset', 'feinerThings')
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/dbafptufn/image/upload',
-      {
-        method: 'POST',
-        body: data
-      }
-    )
-    const file = await res.json()
-    console.log(file)
-    this.setState({
-      image: file.secure_url,
-      largeImage: file.eager[0].secure_url
-    })
-  }
   render() {
     const { title, description, price, image } = this.state
     return (
