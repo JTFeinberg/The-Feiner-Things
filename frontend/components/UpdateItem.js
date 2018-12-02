@@ -20,18 +20,13 @@ const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
     $title: String!
     $description: String!
-    $image: String
-    $largeImage: String
     $price: Int!
   ) {
-    createItem(
-      title: $title
-      description: $description
-      image: $image
-      largeImage: $largeImage
-      price: $price
-    ) {
+    createItem(title: $title, description: $description, price: $price) {
       id
+      title
+      description
+      price
     }
   }
 `
@@ -52,7 +47,7 @@ export default class UpdateItem extends Component {
           const { title, description, price } = data.item
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
-              {(createItem, { loading, error }) => (
+              {(updateItem, { loading, error }) => (
                 <Form
                   onSubmit={async e => {
                     //Stop form from submitting
@@ -104,7 +99,7 @@ export default class UpdateItem extends Component {
                         onChange={this.handleChange}
                       />
                     </label>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Save Changes</button>
                   </fieldset>
                 </Form>
               )}
