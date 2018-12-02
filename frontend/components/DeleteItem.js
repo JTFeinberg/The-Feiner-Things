@@ -15,7 +15,8 @@ export default class DeleteItem extends Component {
     return (
       <Mutation
         mutation={DELETE_ITEM_MUTATION}
-        variables={{ id: this.props.id }}>
+        variables={{ id: this.props.id }}
+        update={this.update}>
         {(deleteItem, { error }) => (
           <button
             onClick={() => {
