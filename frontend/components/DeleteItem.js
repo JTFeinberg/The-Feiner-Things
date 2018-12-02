@@ -12,6 +12,10 @@ const DELETE_ITEM_MUTATION = gql`
 
 export default class DeleteItem extends Component {
   render() {
-    return <button>{this.props.children}</button>
+    return (
+      <Mutation mutation={DELETE_ITEM_MUTATION} variables={this.props.id}>
+        <button>{this.props.children}</button>
+      </Mutation>
+    )
   }
 }
