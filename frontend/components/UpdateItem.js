@@ -18,11 +18,17 @@ const SINGLE_ITEM_QUERY = gql`
 `
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
+    $id: ID!
     $title: String
     $description: String
     $price: Int
   ) {
-    updateItem(title: $title, description: $description, price: $price) {
+    updateItem(
+      id: $id
+      title: $title
+      description: $description
+      price: $price
+    ) {
       id
       title
       description
@@ -38,8 +44,9 @@ export default class UpdateItem extends Component {
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
-  updateItem = (e, mutation) => {
+  updateItem = async (e, updateMutation) => {
     e.preventDefault()
+    const res = await updateMutation({})
   }
   render() {
     // const { title, description, price } = this.state
