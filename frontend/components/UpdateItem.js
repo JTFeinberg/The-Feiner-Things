@@ -59,6 +59,7 @@ export default class UpdateItem extends Component {
       <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
         {({ data, loading }) => {
           if (loading) return <p>Loading...</p>
+          if (!data.item) return <p>No Item Found for ID {this.props.id}</p>
           const { title, description, price } = data.item
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
