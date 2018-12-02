@@ -48,6 +48,7 @@ export default class UpdateItem extends Component {
     return (
       <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
         {({ data, loading }) => {
+          if (loading) return <p>Loading...</p>
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
               {(createItem, { loading, error }) => (
