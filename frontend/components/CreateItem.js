@@ -61,6 +61,7 @@ export default class CreateItem extends Component {
     })
   }
   render() {
+    const { title, description, price, image } = this.state
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { loading, error }) => (
@@ -98,7 +99,7 @@ export default class CreateItem extends Component {
                   name="title"
                   placeholder="Title"
                   required
-                  value={this.state.title}
+                  value={title}
                   onChange={this.handleChange}
                 />
               </label>
@@ -111,7 +112,7 @@ export default class CreateItem extends Component {
                   name="price"
                   placeholder="Price"
                   required
-                  value={this.state.price}
+                  value={price}
                   onChange={this.handleChange}
                 />
               </label>
@@ -123,7 +124,7 @@ export default class CreateItem extends Component {
                   name="description"
                   placeholder="Enter A Description"
                   required
-                  value={this.state.description}
+                  value={description}
                   onChange={this.handleChange}
                 />
               </label>
