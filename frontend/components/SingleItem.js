@@ -42,6 +42,10 @@ export default class SingleItem extends Component {
                                 <title>Feiner Things | {item.title}</title>
                             </Head>
                             <img src={item.largeImage} alt={item.title} />
+                            <div className="details">
+                                <h2>Viewing {item.title}</h2>
+                                <p>{item.description}</p>
+                            </div>
                         </SingleItemStyles>
                     )
                 }}
