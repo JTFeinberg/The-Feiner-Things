@@ -1,7 +1,9 @@
+import SingleItem from '../components/SingleItem'
+
 const Item = props => {
     return (
         <div>
-            <p>Single Item!</p>
+            <SingleItem />
         </div>
     )
 }
