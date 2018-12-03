@@ -14,6 +14,15 @@ display: grid;
 grid-auto-columns: 1fr;
 grid-auto-flow: column;
 min-height: 800px;
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.details {
+    margin: 3rem;
+    font-size: 2rem;
+}
 `
 
 const SINGLE_ITEM_QUERY = gql`
