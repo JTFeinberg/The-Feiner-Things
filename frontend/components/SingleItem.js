@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
+import Head from 'next/head'
 import Error from './ErrorMessage'
+
 
 const SingleItemStyles = styled.div`
 max-width: 1200px;
@@ -36,6 +38,9 @@ export default class SingleItem extends Component {
                     if (!item) return <p>No Item Found for ID {this.props.id}</p>
                     return (
                         <SingleItemStyles>
+                            <Head>
+                                <title>Feiner Things | {item.title}</title>
+                            </Head>
                             <img src={item.largeImage} alt={item.title} />
                         </SingleItemStyles>
                     )
