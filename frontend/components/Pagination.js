@@ -31,7 +31,7 @@ const Pagination = ({ page }) => {
                             pathname: 'items',
                             query: { page: page - 1 }
                         }}>
-                            <a>{`<<< Prev`}</a>
+                            <a className="prev" aria-disabled={page <= 1}>{`<<< Prev`}</a>
                         </Link>
                         <p>Page {page} of {pages}</p>
                     </PaginationStyles>
