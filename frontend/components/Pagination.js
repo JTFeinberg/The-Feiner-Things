@@ -2,6 +2,7 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import Head from 'next/head'
+import Link from 'next/link'
 import PaginationStyles from './styles/PaginationStyles'
 import { perPage } from '../config'
 
@@ -26,6 +27,12 @@ const Pagination = ({ page }) => {
                         <Head>
                             <title>Feiner Things – page {page} of {pages}</title>
                         </Head>
+                        <Link prefetch href={{
+                            pathname: 'items',
+                            query: { page: page - 1 }
+                        }}>
+                            <a>{`<<< Prev`}</a>
+                        </Link>
                         <p>Page {page} of {pages}</p>
                     </PaginationStyles>
                 )
