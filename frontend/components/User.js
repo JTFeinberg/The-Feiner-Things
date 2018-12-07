@@ -18,5 +18,9 @@ const User = props => (
   </Query>
 )
 
+User.PropTypes = {
+  children: PropTypes.func.isRequired
+}
+
 export default User
 export { CURRENT_USER_QUERY }
