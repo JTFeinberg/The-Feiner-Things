@@ -1,4 +1,5 @@
 const cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken')
 //Gives application access to env variables
 require("dotenv").config({ path: "variables.env" })
 
