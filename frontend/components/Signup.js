@@ -28,7 +28,7 @@ export default class Signup extends Component {
       <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
         {(signup, { error, loading }) => (
           <Form>
-            <fieldset>
+            <fieldset disabled={loading} aria-busy={loading}>
               <h2>Signup for an account</h2>
               <label htmlFor="email">
                 Email
