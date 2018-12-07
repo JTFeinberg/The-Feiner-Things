@@ -10,6 +10,7 @@ export default class Signup extends Component {
     email: '',
     password: ''
   }
+  
   render() {
     return (
       <Form>
@@ -45,6 +46,7 @@ export default class Signup extends Component {
               onChange={this.saveToState}
             />
           </label>
+          <button type="submit">Sign Up!</button>
         </fieldset>
       </Form>
     )
