@@ -27,7 +27,13 @@ export default class Signup extends Component {
     return (
       <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
         {(signup, { error, loading }) => (
-          <Form>
+          <Form
+            method="post"
+            onSubmit={async e => {
+              e.preventDefault()
+              await signup()
+              this.setState({ name: '', email: '', password: '' })
+            }}>
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Signup for an account</h2>
               <Error error={error} />
