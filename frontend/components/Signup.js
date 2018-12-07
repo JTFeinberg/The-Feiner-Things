@@ -10,7 +10,9 @@ export default class Signup extends Component {
     email: '',
     password: ''
   }
-  
+  saveToState = ({target}) => {
+    this.setState({[target.name]: target.value})
+  }
   render() {
     return (
       <Form>
