@@ -4,14 +4,24 @@ import gql from 'graphql-tag'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
 
+const SIGNUP_MUTATION = gql`
+  mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
+    signup(email: $email, name: $name, password: $password) {
+      id
+      email
+      name
+    }
+  }
+`
+
 export default class Signup extends Component {
   state = {
     name: '',
     email: '',
     password: ''
   }
-  saveToState = ({target}) => {
-    this.setState({[target.name]: target.value})
+  saveToState = ({ target }) => {
+    this.setState({ [target.name]: target.value })
   }
   render() {
     return (
