@@ -1,9 +1,11 @@
-const Signup = props => {
+import Signup from '../components/Signup'
+
+const SignupPage = props => {
     return (
         <div>
-            <p>Signup!!!</p>
+            <Signup />
         </div>
     )
 }
 
-export default Signup
+export default SignupPage
