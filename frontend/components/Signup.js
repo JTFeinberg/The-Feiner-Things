@@ -30,6 +30,7 @@ export default class Signup extends Component {
           <Form>
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Signup for an account</h2>
+              <Error error={error} />
               <label htmlFor="email">
                 Email
                 <input
