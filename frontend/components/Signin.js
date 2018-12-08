@@ -4,9 +4,9 @@ import gql from 'graphql-tag'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
 
-const SIGNUP_MUTATION = gql`
-  mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
-    signup(email: $email, name: $name, password: $password) {
+const SIGNIN_MUTATION = gql`
+  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
+    signin(email: $email, password: $password) {
       id
       email
       name
@@ -25,7 +25,7 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
+      <Mutation mutation={SIGNIN_MUTATION} variables={this.state}>
         {(signup, { error, loading }) => (
           <Form
             method="post"
