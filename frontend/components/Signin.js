@@ -14,9 +14,8 @@ const SIGNIN_MUTATION = gql`
   }
 `
 
-export default class Signup extends Component {
+export default class Signin extends Component {
   state = {
-    name: '',
     email: '',
     password: ''
   }
@@ -32,10 +31,10 @@ export default class Signup extends Component {
             onSubmit={async e => {
               e.preventDefault()
               await signup()
-              this.setState({ name: '', email: '', password: '' })
+              this.setState({ email: '', password: '' })
             }}>
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Signup for an account</h2>
+              <h2>Sign into your account</h2>
               <Error error={error} />
               <label htmlFor="email">
                 Email
@@ -44,16 +43,6 @@ export default class Signup extends Component {
                   name="email"
                   placeholder="email"
                   value={this.state.email}
-                  onChange={this.saveToState}
-                />
-              </label>
-              <label htmlFor="name">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="name"
-                  value={this.state.name}
                   onChange={this.saveToState}
                 />
               </label>
@@ -67,7 +56,7 @@ export default class Signup extends Component {
                   onChange={this.saveToState}
                 />
               </label>
-              <button type="submit">Sign Up!</button>
+              <button type="submit">Sign In!</button>
             </fieldset>
           </Form>
         )}
