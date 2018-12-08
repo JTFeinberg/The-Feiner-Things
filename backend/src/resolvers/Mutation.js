@@ -76,6 +76,10 @@ const Mutations = {
       throw new Error(`No such user found for email ${email}`)
     }
     //2. check if their password is correct
+    const valid = await bcrypt.compare(password, user.pasword)
+    if (!valid) {
+      throw new Error('Invalid Password!')
+    }
     //3. generate JWT
     //4. set the cookie with the token
     //5. return the user
