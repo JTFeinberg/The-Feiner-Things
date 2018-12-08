@@ -29,12 +29,12 @@ export default class Signin extends Component {
         mutation={SIGNIN_MUTATION}
         variables={this.state}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}>
-        {(signup, { error, loading }) => (
+        {(signin, { error, loading }) => (
           <Form
             method="post"
             onSubmit={async e => {
               e.preventDefault()
-              await signup()
+              await signin()
               this.setState({ email: '', password: '' })
             }}>
             <fieldset disabled={loading} aria-busy={loading}>
