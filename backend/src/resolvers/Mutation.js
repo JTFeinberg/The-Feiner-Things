@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { radomBytes } = require('crypto')
+const { promisify } = require('util')
 
 const Mutations = {
   async createItem(parent, args, ctx, info) {
@@ -101,6 +103,8 @@ const Mutations = {
       throw new Error(`No such user found for email ${email}`)
     }
     // 2. Set a reset token and epiry on that user
+    const resetToken = (await promisify(radomBytes(20))).toString('hex')
+    const resetTokenExpiry = Date.now() + 3600000 // 1 hour from now
     // 3. Email them that rest token
   },
 }
