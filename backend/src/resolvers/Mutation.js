@@ -116,6 +116,9 @@ const Mutations = {
   },
   async resetPassword(parent, { password, confirmPassword, resetToken }, ctx, info) {
     // 1. Check if passwords match
+    if (password !== confirmPassword) {
+      throw new Error(`Passwords do not match!`)
+    }
     // 2. Check if its a legit reset token
     // 3. Check if reset token is expired
     // 4. Hash their new password
