@@ -133,6 +133,7 @@ const Mutations = {
       data: { password: saltedPassword, resetToken: null, resetTokenExpiry: null }
     })
     // 6. Generate JWT
+    const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET)
     // 7. Set the JTW cookie
     // 8. Return the updated user
 
