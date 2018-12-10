@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 
-
+const tokenAge = 1000 * 60 * 60 * 24 * 365 //1 year
 const Mutations = {
   async createItem(parent, args, ctx, info) {
     // TO DO: Check if they are logged in
@@ -67,7 +67,7 @@ const Mutations = {
     ctx.response.cookie('token', token, {
       //cannot access this token via JS to protect it from malicious third-parties
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365, //1 year cookie
+      maxAge: tokenAge,
     })
     //finally return user to browser
     return user
@@ -88,7 +88,7 @@ const Mutations = {
     //4. set the cookie with the token
     ctx.response.cookie('token', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365,
+      maxAge: tokenAge,
     })
     //5. return the user
     return user
@@ -138,7 +138,7 @@ const Mutations = {
     // 7. Set the JTW cookie
     ctx.response.cookie('token', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365,
+      maxAge: tokenAge,
     })
     // 8. Return the updated user
     return updatedUser
