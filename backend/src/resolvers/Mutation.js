@@ -105,6 +105,11 @@ const Mutations = {
     // 2. Set a reset token and epiry on that user
     const resetToken = (await promisify(radomBytes(20))).toString('hex')
     const resetTokenExpiry = Date.now() + 3600000 // 1 hour from now
+    const res = await ctx.db.mutation.updateUser({
+      where: { email },
+      data: { resetToken, resetTokenExpiry }
+    })
+
     // 3. Email them that rest token
   },
 }
