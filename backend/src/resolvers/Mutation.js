@@ -103,7 +103,8 @@ const Mutations = {
       throw new Error(`No such user found for email ${email}`)
     }
     // 2. Set a reset token and epiry on that user
-    const resetToken = (await promisify(radomBytes(20))).toString('hex')
+    const randomBytesPromisified = promisify(radomBytes)
+    const resetToken = (await randomBytesPromisified(20)).toString('hex')
     const resetTokenExpiry = Date.now() + 3600000 // 1 hour from now
     const res = await ctx.db.mutation.updateUser({
       where: { email },
