@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { radomBytes } = require('crypto')
+const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 
 const Mutations = {
@@ -103,7 +103,7 @@ const Mutations = {
       throw new Error(`No such user found for email ${email}`)
     }
     // 2. Set a reset token and epiry on that user
-    const randomBytesPromisified = promisify(radomBytes)
+    const randomBytesPromisified = promisify(randomBytes)
     const resetToken = (await randomBytesPromisified(20)).toString('hex')
     const resetTokenExpiry = Date.now() + 3600000 // 1 hour from now
     const res = await ctx.db.mutation.updateUser({
