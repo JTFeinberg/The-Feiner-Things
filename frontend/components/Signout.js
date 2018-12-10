@@ -10,6 +10,10 @@ const SIGN_OUT_MUTATION = gql`
   }
 `
 
-const Signout = props => <button>Sign Out</button>
+const Signout = props => (
+  <Mutation mutation={SIGN_OUT_MUTATION}>
+    {signout => <button onClick={async () => await signout()}>Sign Out</button>}
+  </Mutation>
+)
 
 export default Signout
