@@ -120,13 +120,15 @@ const Mutations = {
       throw new Error(`Passwords do not match!`)
     }
     // 2. Check if its a legit reset token
+    // 3. Check if reset token is expired
     const [user] = ctx.db.query.users({ where: { resetToken, resetTokenExpiry_gte: Date.now() } })
     if (!user) {
       throw new Error(`Incorrect/Expired reset token`)
     }
-    // 3. Check if reset token is expired
     // 4. Hash their new password
+    const saltedPassword = await bcrypt.hash(password, 10)
     // 5. Save the new password to the user and remove the old resetToken fields
+
     // 6. Generate JWT
     // 7. Set the JTW cookie
     // 8. Return the updated user
