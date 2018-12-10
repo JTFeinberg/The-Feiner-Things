@@ -120,9 +120,9 @@ const Mutations = {
       throw new Error(`Passwords do not match!`)
     }
     // 2. Check if its a legit reset token
-    const [user] = ctx.db.query.users({ where: { resetToken } })
+    const [user] = ctx.db.query.users({ where: { resetToken, resetTokenExpiry_gte: Date.now() } })
     if (!user) {
-      throw new Error(`Incorrect reset token`)
+      throw new Error(`Incorrect/Expired reset token`)
     }
     // 3. Check if reset token is expired
     // 4. Hash their new password
