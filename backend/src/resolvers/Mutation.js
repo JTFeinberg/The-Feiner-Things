@@ -114,6 +114,17 @@ const Mutations = {
     return { message: 'Reset has been set' }
     // 3. Email them that rest token
   },
+  async resetPassword(parent, { password, confirmPassword, resetToken }, ctx, info) {
+    // 1. Check if passwords match
+    // 2. Check if its a legit reset token
+    // 3. Check if reset token is expired
+    // 4. Hash their new password
+    // 5. Save the new password to the user and remove the old resetToken fields
+    // 6. Generate JWT
+    // 7. Set the JTW cookie
+    // 8. Return the updated user
+
+  }
 }
 
 module.exports = Mutations
