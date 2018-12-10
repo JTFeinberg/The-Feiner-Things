@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 
+
 const Mutations = {
   async createItem(parent, args, ctx, info) {
     // TO DO: Check if they are logged in
@@ -135,6 +136,10 @@ const Mutations = {
     // 6. Generate JWT
     const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET)
     // 7. Set the JTW cookie
+    ctx.response.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+    })
     // 8. Return the updated user
 
   }
