@@ -22,9 +22,7 @@ const Nav = () => (
             <Link href="/me">
               <a>Account</a>
             </Link>
-            <Link href="/items">
-              <Signout />
-            </Link>
+            <Signout />
           </>
         )}
         {!me && (
