@@ -93,7 +93,16 @@ const Mutations = {
   signout(parent, args, ctx, info) {
     ctx.response.clearCookie('token')
     return { message: 'You are signed out!' }
-  }
+  },
+  async requestReset(parent, { email }, ctx, info) {
+    // 1. Check if its a real user
+    const user = await ctx.db.query.user({ where: { email } })
+    if (!user) {
+      throw new Error(`No such user found for email ${email}`)
+    }
+    // 2. Set a reset token and epiry on that user
+    // 3. Email them that rest token
+  },
 }
 
 module.exports = Mutations
