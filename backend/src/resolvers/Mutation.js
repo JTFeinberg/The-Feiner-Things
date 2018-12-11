@@ -115,14 +115,14 @@ const Mutations = {
     })
     // 3. Email them that reset token
     const mailRes = await transport.sendMail({
-      from: 'JacobFeinberg92@gmail.com',
+      from: 'no-reply@FeinerThings.com',
       to: email,
       subject: 'Your Password Reset Token',
       html: makeANiceEmail(
-        `Your password reset token is here!
+        `Have no fear 😱! Your password reset token is here 📬!
         \n\n
         <a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">
-          Click Hereto Reset
+          Click Here to Reset
         </a>`)
     })
     // 4. Return the message
