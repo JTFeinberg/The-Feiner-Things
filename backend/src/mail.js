@@ -18,10 +18,11 @@ const makeANiceEmail = text => `
     line-height: 2;
     font-size: 20px;
   ">
-    <h2>Hello There!</h2>
+    <h2>Forgot Something?</h2>
     <p>${text}</p>
-    
-    <p>😎, Feiner Things</p>
+
+    <p>😎,\nFeiner Things</p>
+    <p>P.S. I lose my keys all the time...</p>
   </div>
 `
 

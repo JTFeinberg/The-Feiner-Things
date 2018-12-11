@@ -125,7 +125,6 @@ const Mutations = {
           Click Hereto Reset
         </a>`)
     })
-
     // 4. Return the message
     return { message: 'Reset has been set' }
   },
