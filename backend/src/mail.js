@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer')
 
+//TO DO: Use Postmark when deployed and check documentation
 const transport = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
@@ -9,7 +10,7 @@ const transport = nodemailer.createTransport({
     }
 });
 
-//TO DO: Make better email template
+//TO DO: Make better email template (see mjml.io)
 const makeANiceEmail = text => `
   <div className="email" style="
     border: 1px solid black;
