@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 
+const { transport, makeANiceEmail } = require('../mail')
+
 const tokenAge = 1000 * 60 * 60 * 24 * 365 //1 year
 const Mutations = {
   async createItem(parent, args, ctx, info) {
@@ -111,8 +113,20 @@ const Mutations = {
       where: { email },
       data: { resetToken, resetTokenExpiry }
     })
+    // 3. Email them that reset token
+    const mailRes = await transport.sendMail({
+      from: 'no-reply@FeinerThings.com',
+      to: email,
+      subject: 'Your Password Reset Token',
+      html: makeANiceEmail(
+        `Have no fear 😱! Your password reset token is here 📬!
+        \n\n
+        <a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">
+          Click Here to Reset
+        </a>`)
+    })
+    // 4. Return the message
     return { message: 'Reset has been set' }
-    // 3. Email them that rest token
   },
   async resetPassword(parent, { password, confirmPassword, resetToken }, ctx, info) {
     // 1. Check if passwords match
