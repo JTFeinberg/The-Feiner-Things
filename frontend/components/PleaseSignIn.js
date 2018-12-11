@@ -2,6 +2,12 @@ import { Query } from 'react-apollo'
 import { CURRENT_USER_QUERY } from './User'
 import Signin from './Signin'
 
-const PleaseSignIn = props => <p>Please Sign In!</p>
+const PleaseSignIn = props => (
+  <Query query={CURRENT_USER_QUERY}>
+    {(data, loading) => {
+      if (loading) return <p>Loading...</p>
+    }}
+  </Query>
+)
 
 export default PleaseSignIn
