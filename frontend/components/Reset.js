@@ -4,10 +4,12 @@ import gql from 'graphql-tag'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
 
-const REQUEST_RESET_MUTATION = gql`
-  mutation REQUEST_RESET_MUTATION($email: String!) {
-    requestReset(email: $email) {
-      message
+const RESET_MUTATION = gql`
+  mutation RESET_MUTATION($resetToken: String!, $password: String!, $confirmPassword: String!) {
+    resetPassword(resetToken: $resetToken, password: $password, confirmPassword: $confirmPassword) {
+      id
+      email
+      name
     }
   }
 `
@@ -21,13 +23,13 @@ export default class RequestReset extends Component {
   }
   render() {
     return (
-      <Mutation mutation={REQUEST_RESET_MUTATION} variables={this.state}>
-        {(requestReset, { error, loading, called }) => (
+      <Mutation mutation={RESET_MUTATION} variables={this.state}>
+        {(resetPassword, { error, loading, called }) => (
           <Form
             method="post"
             onSubmit={async e => {
               e.preventDefault()
-              await requestReset()
+              await resetPassword()
               this.setState({ email: '' })
             }}>
             <fieldset disabled={loading} aria-busy={loading}>
