@@ -41,23 +41,32 @@ export default class Reset extends Component {
             onSubmit={async e => {
               e.preventDefault()
               await resetPassword()
-              this.setState({ email: '' })
+              this.setState({ password: '', confirmPassword: '' })
             }}>
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Request a password reset</h2>
+              <h2>Reset Your Password</h2>
               <Error error={error} />
-              {!error && !loading && called && <p>Success! Check your email for a reset link!</p>}
-              <label htmlFor="email">
-                Email
+              <label htmlFor="password">
+                Password
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="email"
-                  value={this.state.email}
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  value={this.state.password}
                   onChange={this.saveToState}
                 />
               </label>
-              <button type="submit">Request Reset!</button>
+              <label htmlFor="confirmPassword">
+                Confirm Password
+                <input
+                  type="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="confirmPassword"
+                  value={this.state.confirmPassword}
+                  onChange={this.saveToState}
+                />
+              </label>
+              <button type="submit">Reset Your Password!</button>
             </fieldset>
           </Form>
         )}
