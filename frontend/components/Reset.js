@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import Proptypes from 'prop-types'
 import Form from './styles/Form'
 import Error from './ErrorMessage'
 
@@ -15,6 +16,9 @@ const RESET_MUTATION = gql`
 `
 
 export default class Reset extends Component {
+  static propTypes = {
+    resetToken: Proptypes.string.isRequired
+  }
   state = {
     password: '',
     confirmPassword: ''
