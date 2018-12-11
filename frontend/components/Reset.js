@@ -14,16 +14,23 @@ const RESET_MUTATION = gql`
   }
 `
 
-export default class RequestReset extends Component {
+export default class Reset extends Component {
   state = {
-    email: ''
+    password: '',
+    confirmPassword: ''
   }
   saveToState = ({ target }) => {
     this.setState({ [target.name]: target.value })
   }
   render() {
     return (
-      <Mutation mutation={RESET_MUTATION} variables={this.state}>
+      <Mutation
+        mutation={RESET_MUTATION}
+        variables={{
+          resetToken: this.props.resetToken,
+          password: this.state.password,
+          confirmPassword: this.state.confirmPassword
+        }}>
         {(resetPassword, { error, loading, called }) => (
           <Form
             method="post"
