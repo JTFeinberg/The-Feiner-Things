@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import PropTypes from 'prop-types'
 import Error from './ErrorMessage'
 import Table from './styles/Table'
 import SickButton from './styles/SickButton'
@@ -56,6 +57,14 @@ const Permissions = props => (
 )
 
 class UserRow extends Component {
+  static propTypes = {
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+      id: PropTypes.string,
+      permissions: PropTypes.array
+    }).isRequired
+  }
   render() {
     const { user } = this.props
     return (
