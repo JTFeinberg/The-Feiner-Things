@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Error from './ErrorMessage'
@@ -49,5 +49,17 @@ const Permissions = props => (
     )}
   </Query>
 )
+
+class User extends Component {
+  render() {
+    const { user } = this.props
+    return (
+      <tr>
+        <td>{user.name}</td>
+        <td>{user.email}</td>
+      </tr>
+    )
+  }
+}
 
 export default Permissions
