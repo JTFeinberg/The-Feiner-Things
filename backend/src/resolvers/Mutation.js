@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
+const { hasPermission } = require('../utils')
 
 const { transport, makeANiceEmail } = require('../mail')
 
@@ -172,6 +173,7 @@ const Mutations = {
     // 2. Query the current user
     const currentUser = await ctx.db.query.user({ where: { id: ctx.request.userId } }, info)
     // 3. Check if they have permissions to do the update
+    hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE'])
     // 4. Update the permissions
   }
 }
