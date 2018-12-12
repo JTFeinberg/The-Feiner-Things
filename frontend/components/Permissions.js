@@ -4,6 +4,15 @@ import gql from 'graphql-tag'
 import Error from './ErrorMessage'
 import Table from './styles/Table'
 
+const possiblePermissions = [
+  'ADMIN',
+  'USER',
+  'ITEMCREATE',
+  'ITEMUPDATE',
+  'ITEMDELETE',
+  'PERMISSIONUPDATE'
+]
+
 const ALL_USERS_QUERY = gql`
   query {
     users {
@@ -27,6 +36,10 @@ const Permissions = props => (
               <tr>
                 <th>Name</th>
                 <th>Email</th>
+                {possiblePermissions.map(permission => (
+                  <th>{permission}</th>
+                ))}
+                <th>⬇️</th>
               </tr>
             </thead>
             <tbody>{data.users.map(user => user.name)}</tbody>
