@@ -114,7 +114,9 @@ class UserPermissions extends Component {
               </td>
             ))}
             <td>
-              <SickButton>Update</SickButton>
+              <SickButton type="button" disabled={loading} onClick={updatePermissions}>
+                Update
+              </SickButton>
             </td>
           </tr>
         )}
