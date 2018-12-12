@@ -163,6 +163,12 @@ const Mutations = {
     })
     // 8. Return the updated user
     return updatedUser
+  },
+  async updatePermissions(parent, args, ctx, info) {
+    // 1. Check if they are logged in
+    // 2. Query the current user
+    // 3. Check if they have permissions to do the update
+    // 4. Update the permissions
   }
 }
 
