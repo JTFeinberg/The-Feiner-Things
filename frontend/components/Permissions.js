@@ -97,28 +97,31 @@ class UserPermissions extends Component {
     return (
       <Mutation mutation={UPDATE_PERMISSIONS_MUTATION} variables={{ permissions, userId: user.id }}>
         {(updatePermissions, { loading, error }) => (
-          <tr>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            {possiblePermissions.map(permission => (
-              <td key={permission}>
-                <label htmlFor={`${user.id}-permission-${permission}`}>
-                  <input
-                    id={`${user.id}-permission-${permission}`}
-                    type="checkbox"
-                    checked={permissions.includes(permission)}
-                    value={permission}
-                    onChange={this.handlePermissionChange}
-                  />
-                </label>
+          <>
+            {error && <Error error={error} />}
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              {possiblePermissions.map(permission => (
+                <td key={permission}>
+                  <label htmlFor={`${user.id}-permission-${permission}`}>
+                    <input
+                      id={`${user.id}-permission-${permission}`}
+                      type="checkbox"
+                      checked={permissions.includes(permission)}
+                      value={permission}
+                      onChange={this.handlePermissionChange}
+                    />
+                  </label>
+                </td>
+              ))}
+              <td>
+                <SickButton type="button" disabled={loading} onClick={updatePermissions}>
+                  Update
+                </SickButton>
               </td>
-            ))}
-            <td>
-              <SickButton type="button" disabled={loading} onClick={updatePermissions}>
-                Update
-              </SickButton>
-            </td>
-          </tr>
+            </tr>
+          </>
         )}
       </Mutation>
     )
