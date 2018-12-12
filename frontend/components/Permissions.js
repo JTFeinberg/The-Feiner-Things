@@ -12,3 +12,5 @@ const Permissions = props => (
     )}
   </Query>
 )
+
+export default Permissions
