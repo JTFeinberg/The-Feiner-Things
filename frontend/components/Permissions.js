@@ -68,6 +68,18 @@ class UserPermissions extends Component {
   state = {
     permissions: this.props.user.permissions
   }
+  handlePermissionChange = e => {
+    const checkbox = e.target
+    // make a copy of the current permissions
+    let updatedPermissions = [...this.state.permissions]
+    //figure out if we need to add or remove this permission
+    if (checkbox.checked) {
+      updatedPermissions.push(checkbox.value)
+    } else {
+      updatedPermissions = updatedPermissions.filter(permission => permission !== checkbox.value)
+    }
+    this.setState({ permissions: updatedPermissions })
+  }
   render() {
     const { user } = this.props
     return (
@@ -77,7 +89,12 @@ class UserPermissions extends Component {
         {possiblePermissions.map(permission => (
           <td key={permission}>
             <label htmlFor={`${user.id}-permission-${permission}`}>
-              <input type="checkbox" checked={this.state.permissions.includes(permission)} />
+              <input
+                type="checkbox"
+                checked={this.state.permissions.includes(permission)}
+                value={permission}
+                onChange={this.handlePermissionChange}
+              />
             </label>
           </td>
         ))}
