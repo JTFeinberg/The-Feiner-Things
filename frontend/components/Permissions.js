@@ -15,6 +15,17 @@ const possiblePermissions = [
   'PERMISSIONUPDATE'
 ]
 
+const UPDATE_PERMISSIONS_MUTATION = gql`
+  mutation UPDATE_PERMISSIONS_MUTATION($permissions: [Permission], $userId: ID!) {
+    updatePermissions(permissions: $permissions, userId: $userId) {
+      id
+      name
+      email
+      permissions
+    }
+  }
+`
+
 const ALL_USERS_QUERY = gql`
   query {
     users {
