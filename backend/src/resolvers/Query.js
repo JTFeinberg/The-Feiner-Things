@@ -13,11 +13,12 @@ const Query = {
     return ctx.db.query.user({
       where: { id: ctx.request.userId }
     }, info)
+  },
+  async users(parent, args, ctx, info) {
+    // 1. check if the user is logged in
+    // 2. Check if the user has the permissions to query all the users
+    // 3. If they do, query all the users
   }
-  // async items(parent, args, ctx, info) {
-  //   const items = await ctx.db.query.items()
-  //   return items
-  // }
 }
 
 module.exports = Query
