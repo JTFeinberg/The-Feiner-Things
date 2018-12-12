@@ -1,5 +1,5 @@
 const { forwardTo } = require('prisma-binding')
-const { hasPermissions } = require('../utils')
+const { hasPermission } = require('../utils')
 
 const Query = {
   // Since no additional logic is needed, we can just forward the query logic from prisma straight to the db
@@ -21,6 +21,7 @@ const Query = {
       throw new Error('You must be logged in!')
     }
     // 2. Check if the user has the permissions to query all the users
+    hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE'])
     // 3. If they do, query all the users
   }
 }
