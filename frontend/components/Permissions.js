@@ -46,7 +46,7 @@ const Permissions = props => (
             </thead>
             <tbody>
               {data.users.map(user => (
-                <UserRow user={user} />
+                <UserPermissions user={user} />
               ))}
             </tbody>
           </Table>
@@ -56,7 +56,7 @@ const Permissions = props => (
   </Query>
 )
 
-class UserRow extends Component {
+class UserPermissions extends Component {
   static propTypes = {
     user: PropTypes.shape({
       name: PropTypes.string,
@@ -64,6 +64,9 @@ class UserRow extends Component {
       id: PropTypes.string,
       permissions: PropTypes.array
     }).isRequired
+  }
+  state = {
+    permissions: this.props.user.permissions
   }
   render() {
     const { user } = this.props
