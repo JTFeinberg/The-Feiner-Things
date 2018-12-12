@@ -2,9 +2,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
-const { hasPermission } = require('../utils')
-
 const { transport, makeANiceEmail } = require('../mail')
+const { hasPermission } = require('../utils')
 
 const tokenAge = 1000 * 60 * 60 * 24 * 365 //1 year
 const Mutations = {
@@ -165,7 +164,7 @@ const Mutations = {
     // 8. Return the updated user
     return updatedUser
   },
-  async updatePermissions(parent, args, ctx, info) {
+  async updatePermissions(parent, { userId, permissions }, ctx, info) {
     // 1. Check if they are logged in
     if (!ctx.request.userId) {
       throw new Error('You must be logged in!')
@@ -175,6 +174,16 @@ const Mutations = {
     // 3. Check if they have permissions to do the update
     hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE'])
     // 4. Update the permissions
+    return ctx.db.mutation.updateUser({
+      where: {
+        id: userId
+      },
+      data: {
+        permissions: {
+          set: permissions
+        }
+      }
+    }, info)
   }
 }
 
