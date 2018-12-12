@@ -98,7 +98,13 @@ class UserPermissions extends Component {
       <Mutation mutation={UPDATE_PERMISSIONS_MUTATION} variables={{ permissions, userId: user.id }}>
         {(updatePermissions, { loading, error }) => (
           <>
-            {error && <Error error={error} />}
+            {error && (
+              <tr>
+                <td colspan="9">
+                  <Error error={error} />
+                </td>
+              </tr>
+            )}
             <tr>
               <td>{user.name}</td>
               <td>{user.email}</td>
