@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Error from './ErrorMessage'
 import Table from './styles/Table'
+import SickButton from './styles/SickButton'
 
 const possiblePermissions = [
   'ADMIN',
@@ -68,6 +69,9 @@ class UserRow extends Component {
             </label>
           </td>
         ))}
+        <td>
+          <SickButton>Update</SickButton>
+        </td>
       </tr>
     )
   }
