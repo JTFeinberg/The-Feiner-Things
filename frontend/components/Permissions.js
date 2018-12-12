@@ -61,6 +61,13 @@ class UserRow extends Component {
       <tr>
         <td>{user.name}</td>
         <td>{user.email}</td>
+        {possiblePermissions.map(permission => (
+          <td>
+            <label htmlFor={`${user.id}-permission-${permission}`}>
+              <input type="checkbox" />
+            </label>
+          </td>
+        ))}
       </tr>
     )
   }
