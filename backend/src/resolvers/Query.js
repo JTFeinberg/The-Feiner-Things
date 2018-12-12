@@ -1,4 +1,5 @@
 const { forwardTo } = require('prisma-binding')
+const { hasPermissions } = require('../utils')
 
 const Query = {
   // Since no additional logic is needed, we can just forward the query logic from prisma straight to the db
