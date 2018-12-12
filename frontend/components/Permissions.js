@@ -42,7 +42,11 @@ const Permissions = props => (
                 <th>⬇️</th>
               </tr>
             </thead>
-            <tbody>{data.users.map(user => user.name)}</tbody>
+            <tbody>
+              {data.users.map(user => (
+                <UserRow user={user} />
+              ))}
+            </tbody>
           </Table>
         </div>
       </div>
@@ -50,7 +54,7 @@ const Permissions = props => (
   </Query>
 )
 
-class User extends Component {
+class UserRow extends Component {
   render() {
     const { user } = this.props
     return (
