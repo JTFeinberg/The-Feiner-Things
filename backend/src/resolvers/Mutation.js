@@ -50,7 +50,7 @@ const Mutations = {
     const item = await ctx.db.query.item({ where }, `{id
     title}`)
     //2. check if they own that item or have the permissions
-    //TODO
+    const ownsItem = item.user.id === ctx.request.userId
     //3. delete it
     return ctx.db.mutation.deleteItem({ where }, info)
   },
