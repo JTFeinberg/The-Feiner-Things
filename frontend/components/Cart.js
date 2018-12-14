@@ -6,16 +6,16 @@ import SickButton from './styles/SickButton'
 
 const Cart = () => {
   return (
-    <CartStyles>
+    <CartStyles open>
       <header>
         <CloseButton title="close">&times;</CloseButton>
         <Supreme>Your Cart</Supreme>
         <p>You have __ items in your cart</p>
-        <footer>
-          <p>$10.10</p>
-          <SickButton>Checkout</SickButton>
-        </footer>
       </header>
+      <footer>
+        <p>$10.10</p>
+        <SickButton>Checkout</SickButton>
+      </footer>
     </CartStyles>
   )
 }
