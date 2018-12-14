@@ -21,10 +21,18 @@ function createClient({ headers }) {
           // First argument is unused (ever?) so we  use _
           // Third argument is client, but we dont need the whole thing so we just destructure the cache
           toggleCart(_, variables, { cache }) {
-            // read the cartOpen value from cache
+            // Read the cartOpen value from cache
             const { cartOpen } = cache.readQuery({
               query: LOCAL_STATE_QUERY
             })
+            // Write the cart state to the opposite
+            const data = {
+              data: {
+                cartOpen: !cartOpen
+              }
+            }
+            cache.writeData(data)
+            return data
           }
         }
       },
