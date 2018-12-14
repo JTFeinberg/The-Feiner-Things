@@ -18,7 +18,7 @@ const Cart = () => {
   return (
     <Query query={LOCAL_STATE_QUERY}>
       {({ data }) => (
-        <CartStyles open>
+        <CartStyles open={data.cartOpen}>
           <header>
             <CloseButton title="close">&times;</CloseButton>
             <Supreme>Your Cart</Supreme>
