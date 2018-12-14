@@ -1,8 +1,18 @@
 import React from 'react'
+import { Query, Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 import CartStyles from './styles/CartStyles'
 import Supreme from './styles/Supreme'
 import CloseButton from './styles/CloseButton'
 import SickButton from './styles/SickButton'
+
+const LOCAL_STATE_QUERY = gql`
+  query {
+    # @client directive tells apollo to avoid going to db
+    # and instead go to client store for data
+    cartOpen @client
+  }
+`
 
 const Cart = () => {
   return (
