@@ -23,6 +23,7 @@ const Nav = () => (
               <a>Account</a>
             </Link>
             <Signout />
+            <button>My Cart</button>
           </>
         )}
         {!me && (
