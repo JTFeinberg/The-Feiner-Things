@@ -14,6 +14,12 @@ const LOCAL_STATE_QUERY = gql`
   }
 `
 
+const TOGGLE_CART_MUTATION = gql`
+  mutation {
+    toggleCart @client
+  }
+`
+
 const Cart = () => {
   return (
     <Query query={LOCAL_STATE_QUERY}>
