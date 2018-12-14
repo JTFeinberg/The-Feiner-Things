@@ -15,7 +15,15 @@ function createClient({ headers }) {
     },
     // local data
     clientState: {
-      resolvers: {},
+      resolvers: {
+        Mutation: {
+          // First argument is unused (ever?) so we  use _
+          // Third argument is client, but we dont need the whole thing so we just destructure the cache
+          toggleCart(_, variables, { cache }) {
+            // read the cartOpen value from cache
+          }
+        }
+      },
       defaults: {
         cartOpen: true
       }
