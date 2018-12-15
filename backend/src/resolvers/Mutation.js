@@ -191,6 +191,10 @@ const Mutations = {
   },
   async addToCart(parent, args, ctx, info) {
     //1. Check if user is signed in
+    const { userId } = ctx.request
+    if (!userId) {
+      throw new Error('You must be logged in!')
+    }
     //2. Query the users current cart
     //3. Check if at item is already in their cart and incrememnt by 1 if it is
     //4. Create a new cart item if it isnt
