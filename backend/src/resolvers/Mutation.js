@@ -206,7 +206,7 @@ const Mutations = {
       return ctx.db.mutation.updateCartItem({
         where: { id: existingCartItem.id },
         data: { quantity: existingCartItem.quantity + 1 }
-      })
+      }, info)
     }
     //4. Create a new cart item if it isnt
     return ctx.db.mutation.createCartItem({
@@ -218,7 +218,7 @@ const Mutations = {
           connect: { id }
         }
       }
-    })
+    }, info)
   }
 }
 
