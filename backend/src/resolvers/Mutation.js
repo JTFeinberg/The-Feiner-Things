@@ -209,6 +209,16 @@ const Mutations = {
       })
     }
     //4. Create a new cart item if it isnt
+    return ctx.db.mutation.createCartItem({
+      data: {
+        user: {
+          connect: { id: userId }
+        },
+        item: {
+          connect: { id }
+        }
+      }
+    })
   }
 }
 
