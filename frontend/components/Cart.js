@@ -2,6 +2,7 @@ import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import User from './User'
+import CartItem from './CartItem'
 import CartStyles from './styles/CartStyles'
 import Supreme from './styles/Supreme'
 import CloseButton from './styles/CloseButton'
@@ -44,7 +45,7 @@ const Cart = () => {
                     </header>
                     <ul>
                       {cart.map(cartItem => (
-                        <li>{cartItem.id}</li>
+                        <CartItem key={cartItem.id} cartItem={cartItem} />
                       ))}
                     </ul>
                     <footer>
