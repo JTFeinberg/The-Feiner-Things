@@ -5,8 +5,14 @@ import PropTypes from 'prop-types'
 
 const CartItemStyles = styled.li``
 
-const CartItem = ({ cartItem }) => <CartItemStyles>{cartItem.id}</CartItemStyles>
-
+const CartItem = ({ cartItem }) => {
+  const { image, title } = cartItem.item
+  return (
+    <CartItemStyles>
+      <img width="100" src={image} alt={title} />
+    </CartItemStyles>
+  )
+}
 CartItem.propTypes = {
   cartItem: PropTypes.object.isRequired
 }
