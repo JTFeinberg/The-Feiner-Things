@@ -13,6 +13,13 @@ const CURRENT_USER_QUERY = gql`
       cart {
         id
         quantity
+        item {
+          id
+          price
+          image
+          title
+          description
+        }
       }
     }
   }
