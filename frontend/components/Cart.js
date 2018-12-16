@@ -26,6 +26,7 @@ const Cart = () => {
     <User>
       {({ data: { me } }) => {
         if (!me) return null
+        const { cart, name } = me
         return (
           <Mutation mutation={TOGGLE_CART_MUTATION}>
             {toggleCart => (
@@ -36,9 +37,9 @@ const Cart = () => {
                       <CloseButton title="close" onClick={toggleCart}>
                         &times;
                       </CloseButton>
-                      <Supreme>{me.name}'s Cart</Supreme>
+                      <Supreme>{name}'s Cart</Supreme>
                       <p>
-                        You have {me.cart.length} item{me.cart.length > 1 ? 's' : ''} in your cart
+                        You have {cart.length} item{cart.length > 1 ? 's' : ''} in your cart
                       </p>
                     </header>
                     <footer>
