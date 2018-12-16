@@ -42,6 +42,11 @@ const Cart = () => {
                         You have {cart.length} item{cart.length > 1 ? 's' : ''} in your cart
                       </p>
                     </header>
+                    <ul>
+                      {cart.map(cartItem => (
+                        <li>{cartItem.id}</li>
+                      ))}
+                    </ul>
                     <footer>
                       <p>$10.10</p>
                       <SickButton>Checkout</SickButton>
