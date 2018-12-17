@@ -28,6 +28,16 @@ export default class RemoveFromCart extends Component {
     id: PropTypes.string.isRequired
   }
   render() {
-    return <BigButton title="Delete Item">&times;</BigButton>
+    return (
+      <Mutation mutation={REMOVE_FROM_CART_MUTATION} variables={{ id: this.props.id }}>
+        {removeFromCart => (
+          <BigButton
+            onClick={() => removeFromCart().catch(err => alert(err.message))}
+            title="Delete Item">
+            &times;
+          </BigButton>
+        )}
+      </Mutation>
+    )
   }
 }
