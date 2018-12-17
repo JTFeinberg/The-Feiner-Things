@@ -30,8 +30,9 @@ export default class RemoveFromCart extends Component {
   render() {
     return (
       <Mutation mutation={REMOVE_FROM_CART_MUTATION} variables={{ id: this.props.id }}>
-        {removeFromCart => (
+        {(removeFromCart, { error, loading }) => (
           <BigButton
+            disabled={loading}
             onClick={() => removeFromCart().catch(err => alert(err.message))}
             title="Delete Item">
             &times;
