@@ -228,8 +228,10 @@ const Mutations = {
     if (!cartItem) {
       throw new Error('No Cart Item Found!')
     }
-
     //2. make sure they own the cart item
+    if (cartItem.user.id !== ctx.request.userId) {
+      throw new Error('That item is not in your cart!')
+    }
     //3. Delete that cart item
     // return ctx.db.mutation.deleteCartItem({ where: { id } }, info)
   }
