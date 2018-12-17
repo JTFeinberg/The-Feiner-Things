@@ -233,7 +233,7 @@ const Mutations = {
       throw new Error('That item is not in your cart!')
     }
     //3. Delete that cart item
-    // return ctx.db.mutation.deleteCartItem({ where: { id } }, info)
+    return ctx.db.mutation.deleteCartItem({ where: { id } }, info)
   }
 }
 
