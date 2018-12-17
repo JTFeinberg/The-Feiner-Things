@@ -221,6 +221,11 @@ const Mutations = {
         }
       }
     }, info)
+  },
+  async removeFromCart(parent, { id }, ctx, info) {
+    //1. Find the cart Item
+    //2. make sure they own the cart item
+    //3. Delete that cart item
   }
 }
 
