@@ -29,7 +29,11 @@ export default class RemoveFromCart extends Component {
   }
   // This gets called as soon as we get a response from
   // the server after a mutation has been performed
-  update = () => {}
+  update = (cache, payload) => {
+    //1. read the cache
+    //2. remove that item from the cart
+    //3. write it back to the cache
+  }
   render() {
     return (
       <Mutation mutation={REMOVE_FROM_CART_MUTATION} variables={{ id: this.props.id }}>
