@@ -27,6 +27,7 @@ export default class RemoveFromCart extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired
   }
+  update = () => {}
   render() {
     return (
       <Mutation mutation={REMOVE_FROM_CART_MUTATION} variables={{ id: this.props.id }}>
