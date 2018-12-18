@@ -27,6 +27,8 @@ export default class RemoveFromCart extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired
   }
+  // This gets called as soon as we get a response from
+  // the server after a mutation has been performed
   update = () => {}
   render() {
     return (
