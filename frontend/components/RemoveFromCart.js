@@ -33,6 +33,8 @@ export default class RemoveFromCart extends Component {
     //1. read the cache
     const data = cache.readQuery({ query: CURRENT_USER_QUERY })
     //2. remove that item from the cart
+    const cartItemId = payload.data.removeFromCart.id
+    data.me.cart = data.me.cart.filter(cartItem => cartItem.id !== cartItemId)
     //3. write it back to the cache
   }
   render() {
