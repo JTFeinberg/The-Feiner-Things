@@ -43,7 +43,13 @@ export default class RemoveFromCart extends Component {
       <Mutation
         mutation={REMOVE_FROM_CART_MUTATION}
         variables={{ id: this.props.id }}
-        update={this.update}>
+        update={this.update}
+        optimisticResponse={{
+          __typename: 'Mutation',
+          removeFromCart: {
+            id: this.props.id
+          }
+        }}>
         {(removeFromCart, { error, loading }) => (
           <BigButton
             disabled={loading}
