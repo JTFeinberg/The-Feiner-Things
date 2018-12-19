@@ -30,7 +30,7 @@ const Nav = () => (
               {toggleCart => (
                 <button type="button" onClick={toggleCart}>
                   My Cart
-                  <CartCount cart={100} />
+                  <CartCount count={100} />
                 </button>
               )}
             </Mutation>
