@@ -19,7 +19,12 @@ const Dot = styled.div`
 
 const CartCount = ({ count }) => (
   <TransitionGroup>
-    <CSSTransition>
+    <CSSTransition
+      unmountOnExit
+      className="count"
+      classNames="count"
+      key={count}
+      timeout={{ enter: 4000, exit: 4000 }}>
       <Dot>{count}</Dot>
     </CSSTransition>
   </TransitionGroup>
