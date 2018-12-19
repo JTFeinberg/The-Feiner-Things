@@ -11,6 +11,13 @@ const AnimationStyles = styled.span`
     transition: all 4s;
     backface-visibility: hidden;
   }
+  /* Initial state of the entered Dot */
+  .count-enter {
+    transform: rotateX(0.5turn);
+  }
+  .count-enter-active {
+    transform: rotateX(0);
+  }
 `
 
 const Dot = styled.div`
