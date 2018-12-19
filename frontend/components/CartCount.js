@@ -28,16 +28,18 @@ const Dot = styled.div`
 `
 
 const CartCount = ({ count }) => (
-  <TransitionGroup>
-    <CSSTransition
-      unmountOnExit
-      className="count"
-      classNames="count"
-      key={count}
-      timeout={{ enter: 4000, exit: 4000 }}>
-      <Dot>{count}</Dot>
-    </CSSTransition>
-  </TransitionGroup>
+  <AnimationStyles>
+    <TransitionGroup>
+      <CSSTransition
+        unmountOnExit
+        className="count"
+        classNames="count"
+        key={count}
+        timeout={{ enter: 4000, exit: 4000 }}>
+        <Dot>{count}</Dot>
+      </CSSTransition>
+    </TransitionGroup>
+  </AnimationStyles>
 )
 
 export default CartCount
