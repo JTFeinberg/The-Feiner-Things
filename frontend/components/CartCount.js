@@ -3,6 +3,16 @@ import PropTypes from 'prop-types'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 
+const AnimationStyles = styled.span`
+  position: relative;
+  .count {
+    display: block;
+    position: relative;
+    transition: all 4s;
+    backface-visibility: hidden;
+  }
+`
+
 const Dot = styled.div`
   background: ${props => props.theme.red};
   color: white;
