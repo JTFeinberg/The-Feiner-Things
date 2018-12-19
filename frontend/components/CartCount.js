@@ -18,6 +18,14 @@ const AnimationStyles = styled.span`
   .count-enter-active {
     transform: rotateX(0);
   }
+  .count-exit {
+    top: 0;
+    position: absolute;
+    transform: rotateX(0);
+  }
+  .count-exit-active {
+    transform: rotateX(0.5turn);
+  }
 `
 
 const Dot = styled.div`
