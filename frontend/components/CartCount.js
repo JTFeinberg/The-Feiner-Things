@@ -15,3 +15,7 @@ const Dot = styled.div`
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
 `
+
+const CartCount = ({ count }) => <Dot>{count}</Dot>
+
+export default CartCount
