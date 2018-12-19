@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { TansitionGroup, CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 
 const Dot = styled.div`
