@@ -20,6 +20,7 @@ const CartItemStyles = styled.li`
 `
 
 const CartItem = ({ cartItem }) => {
+  // Frist check if the item exists
   if (!cartItem.item) {
     return (
       <CartItemStyles>
