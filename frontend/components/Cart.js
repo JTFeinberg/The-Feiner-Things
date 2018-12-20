@@ -26,9 +26,9 @@ const TOGGLE_CART_MUTATION = gql`
 `
 
 const Composed = adopt({
-  user: <User />,
-  toggleCart: <Mutation mutation={TOGGLE_CART_MUTATION} />,
-  localState: <Query query={LOCAL_STATE_QUERY} />
+  user: ({ render }) => <User>{render}</User>,
+  toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
+  localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 })
 
 const Cart = () => {
@@ -39,7 +39,7 @@ const Cart = () => {
         if (!me) return null
         const { cart, name } = me
         return (
-          <CartStyles open={data.cartOpen}>
+          <CartStyles open={localState.data.cartOpen}>
             <header>
               <CloseButton title="close" onClick={toggleCart}>
                 &times;
