@@ -27,7 +27,8 @@ export default class DeleteItem extends Component {
       <Mutation
         mutation={DELETE_ITEM_MUTATION}
         variables={{ id: this.props.id }}
-        update={this.update}>
+        update={this.update}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}>
         {(deleteItem, { error }) => (
           <button
             type="button"
