@@ -33,8 +33,8 @@ const Composed = adopt({
 
 const Cart = () => {
   return (
-    <User>
-      {({ data: { me } }) => {
+    <Composed>
+      {({ user, toggleCart, localState }) => {
         if (!me) return null
         const { cart, name } = me
         return (
@@ -68,7 +68,7 @@ const Cart = () => {
           </Mutation>
         )
       }}
-    </User>
+    </Composed>
   )
 }
 
