@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { adopt } from 'react-adopt'
 import User from './User'
 import CartItem from './CartItem'
 import CartStyles from './styles/CartStyles'
