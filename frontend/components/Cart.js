@@ -24,12 +24,13 @@ const TOGGLE_CART_MUTATION = gql`
     toggleCart @client
   }
 `
-
+/* eslint-disable */
 const Composed = adopt({
   user: ({ render }) => <User>{render}</User>,
   toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
   localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 })
+/* eslint-enable */
 
 const Cart = () => {
   return (
