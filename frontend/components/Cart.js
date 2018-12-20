@@ -39,34 +39,30 @@ const Cart = () => {
         if (!me) return null
         const { cart, name } = me
         return (
-          <Mutation mutation={TOGGLE_CART_MUTATION}>
-            {toggleCart => (
-              <Query query={LOCAL_STATE_QUERY}>
-                {({ data }) => (
-                  <CartStyles open={data.cartOpen}>
-                    <header>
-                      <CloseButton title="close" onClick={toggleCart}>
-                        &times;
-                      </CloseButton>
-                      <Supreme>{name}'s Cart</Supreme>
-                      <p>
-                        You have {cart.length} item{cart.length > 1 ? 's' : ''} in your cart
-                      </p>
-                    </header>
-                    <ul>
-                      {cart.map(cartItem => (
-                        <CartItem key={cartItem.id} cartItem={cartItem} />
-                      ))}
-                    </ul>
-                    <footer>
-                      <p>{formatMoney(calcTotalPrice(cart))}</p>
-                      <SickButton>Checkout</SickButton>
-                    </footer>
-                  </CartStyles>
-                )}
-              </Query>
+          <Query query={LOCAL_STATE_QUERY}>
+            {({ data }) => (
+              <CartStyles open={data.cartOpen}>
+                <header>
+                  <CloseButton title="close" onClick={toggleCart}>
+                    &times;
+                  </CloseButton>
+                  <Supreme>{name}'s Cart</Supreme>
+                  <p>
+                    You have {cart.length} item{cart.length > 1 ? 's' : ''} in your cart
+                  </p>
+                </header>
+                <ul>
+                  {cart.map(cartItem => (
+                    <CartItem key={cartItem.id} cartItem={cartItem} />
+                  ))}
+                </ul>
+                <footer>
+                  <p>{formatMoney(calcTotalPrice(cart))}</p>
+                  <SickButton>Checkout</SickButton>
+                </footer>
+              </CartStyles>
             )}
-          </Mutation>
+          </Query>
         )
       }}
     </Composed>
