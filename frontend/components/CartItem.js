@@ -20,6 +20,7 @@ const CartItemStyles = styled.li`
 `
 
 const CartItem = ({ cartItem }) => {
+  if (!cartItem.item) return null
   const { image, title, price } = cartItem.item
   return (
     <CartItemStyles>
