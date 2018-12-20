@@ -25,6 +25,12 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `
 
+const Composed = adopt({
+  user: <User />,
+  toggleCart: <Mutation mutation={TOGGLE_CART_MUTATION} />,
+  localState: <Query query={LOCAL_STATE_QUERY} />
+})
+
 const Cart = () => {
   return (
     <User>
