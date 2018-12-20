@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { ALL_ITEMS_QUERY } from './Items'
+import { CURRENT_USER_QUERY } from './User'
 
 const DELETE_ITEM_MUTATION = gql`
   mutation DELETE_ITEM_MUTATION($id: ID!) {
@@ -26,7 +27,8 @@ export default class DeleteItem extends Component {
       <Mutation
         mutation={DELETE_ITEM_MUTATION}
         variables={{ id: this.props.id }}
-        update={this.update}>
+        update={this.update}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}>
         {(deleteItem, { error }) => (
           <button
             type="button"
