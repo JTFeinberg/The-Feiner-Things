@@ -22,7 +22,15 @@ export default class AutoComplete extends Component {
       <SearchStyles>
         <div>
           <ApolloConsumer>
-            {client => <input type="search" onChange={() => console.log(client)} />}
+            {client => (
+              <input
+                type="search"
+                onChange={e => {
+                  e.persist()
+                  this.handleChange(e, client)
+                }}
+              />
+            )}
           </ApolloConsumer>
           <Dropdown>
             <p>Items will go here</p>
