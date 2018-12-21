@@ -29,7 +29,10 @@ export default class AutoComplete extends Component {
       query: SEARCH_ITEMS_QUERY,
       variables: { searchTerm: e.target.value }
     })
-    console.log(res)
+    this.setState({
+      items: res.data.items,
+      loading: false
+    })
   }
   render() {
     return (
