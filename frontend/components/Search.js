@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import DownShift from 'downshit'
+import DownShift from 'downshift'
 import Router from 'next/router'
 import { ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
 import debounce from 'lodash.debounce'
-import { Dropdown, DropDownItem, SearchStyles } from './styles/DropDown'
+import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown'
 
 const SEARCH_ITEMS_QUERY = gql`
   query SEARCH_ITEMS_QUERY($searchTerm: String!) {
@@ -32,9 +32,9 @@ export default class AutoComplete extends Component {
               />
             )}
           </ApolloConsumer>
-          <Dropdown>
+          <DropDown>
             <p>Items will go here</p>
-          </Dropdown>
+          </DropDown>
         </div>
       </SearchStyles>
     )
