@@ -22,6 +22,8 @@ export default class AutoComplete extends Component {
     loading: false
   }
   handleChange = async (e, client) => {
+    //Turn loading on
+    this.setState({ loading: true })
     //Manually query apollo client
     const res = await client.query({
       query: SEARCH_ITEMS_QUERY,
