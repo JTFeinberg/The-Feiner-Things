@@ -17,6 +17,10 @@ const SEARCH_ITEMS_QUERY = gql`
 `
 
 export default class AutoComplete extends Component {
+  handleChange(e, client) {
+    console.log('Im inside the client')
+    console.log(client)
+  }
   render() {
     return (
       <SearchStyles>
