@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DownShift from 'downshit'
 import Router from 'next/router'
-import { ApolloConsumer } from 'react adopt'
+import { ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
 import debounce from 'lodash.debounce'
 import { Dropdown, DropDownItem, SearchStyles } from './styles/DropDown'
@@ -21,7 +21,9 @@ export default class AutoComplete extends Component {
     return (
       <SearchStyles>
         <div>
-          <input type="search" />
+          <ApolloConsumer>
+            {client => <input type="search" onChange={() => console.log(client)} />}
+          </ApolloConsumer>
           <Dropdown>
             <p>Items will go here</p>
           </Dropdown>
