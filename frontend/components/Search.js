@@ -17,6 +17,10 @@ const SEARCH_ITEMS_QUERY = gql`
 `
 
 export default class AutoComplete extends Component {
+  state = {
+    items: [],
+    loading: false
+  }
   handleChange = async (e, client) => {
     //Manually query apollo client
     const res = await client.query({
