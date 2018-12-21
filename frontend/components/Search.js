@@ -6,6 +6,12 @@ import gql from 'graphql-tag'
 import debounce from 'lodash.debounce'
 import { Dropdown, DropDownItem, SearchStyles } from './styles/DropDown'
 
+const SEARCH_ITEMS_QUERY = gql`
+  query SEARCH_ITEMS_QUERY($searchTerm: String!) {
+    items(where: { OR: [{ title_contains: $searchTerm }, { description_contains: $searchTerm }] })
+  }
+`
+
 export default class AutoComplete extends Component {
   render() {
     return (
