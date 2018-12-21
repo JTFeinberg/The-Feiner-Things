@@ -17,9 +17,12 @@ const SEARCH_ITEMS_QUERY = gql`
 `
 
 export default class AutoComplete extends Component {
-  handleChange(e, client) {
-    console.log('Im inside the client')
-    console.log(client)
+  handleChange = async (e, client) => {
+    const res = await client.query({
+      query: SEARCH_ITEMS_QUERY,
+      variables: { searchTerm: e.target.value }
+    })
+    console.log(res)
   }
   render() {
     return (
