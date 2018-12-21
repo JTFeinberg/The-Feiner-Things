@@ -21,7 +21,7 @@ export default class AutoComplete extends Component {
     items: [],
     loading: false
   }
-  handleChange = async (e, client) => {
+  handleChange = debounce(async (e, client) => {
     //Turn loading on
     this.setState({ loading: true })
     //Manually query apollo client
@@ -33,7 +33,7 @@ export default class AutoComplete extends Component {
       items: res.data.items,
       loading: false
     })
-  }
+  }, 350)
   render() {
     return (
       <SearchStyles>
