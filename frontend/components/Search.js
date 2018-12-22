@@ -58,8 +58,11 @@ export default class AutoComplete extends Component {
               </ApolloConsumer>
               {isOpen && (
                 <DropDown>
-                  {this.state.items.map(item => (
-                    <DropDownItem {...getItemProps(item)} key={item.id}>
+                  {this.state.items.map((item, index) => (
+                    <DropDownItem
+                      {...getItemProps(item)}
+                      key={item.id}
+                      highlighted={index === highlightedIndex}>
                       <img width="50" src={item.image} alt={item.title} />
                       {item.title}
                     </DropDownItem>
