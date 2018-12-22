@@ -60,7 +60,7 @@ export default class AutoComplete extends Component {
                 <DropDown>
                   {this.state.items.map((item, index) => (
                     <DropDownItem
-                      {...getItemProps(item)}
+                      {...getItemProps({ item })}
                       key={item.id}
                       highlighted={index === highlightedIndex}>
                       <img width="50" src={item.image} alt={item.title} />
