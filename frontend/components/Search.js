@@ -43,11 +43,16 @@ export default class AutoComplete extends Component {
               <ApolloConsumer>
                 {client => (
                   <input
-                    type="search"
-                    onChange={e => {
-                      e.persist()
-                      this.handleChange(e, client)
-                    }}
+                    {...getInputProps({
+                      type: 'search',
+                      placeholder: 'Search For An Item',
+                      id: 'search',
+                      className: this.state.loading ? 'loading' : '',
+                      onChange: e => {
+                        e.persist()
+                        this.handleChange(e, client)
+                      }
+                    })}
                   />
                 )}
               </ApolloConsumer>
