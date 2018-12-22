@@ -75,6 +75,9 @@ export default class AutoComplete extends Component {
                       {item.title}
                     </DropDownItem>
                   ))}
+                  {!this.state.items.length && !this.state.loading && (
+                    <DropDownItem>Nothing Found For {inputValue}</DropDownItem>
+                  )}
                 </DropDown>
               )}
             </div>
