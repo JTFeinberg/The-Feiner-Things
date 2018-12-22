@@ -59,7 +59,7 @@ export default class AutoComplete extends Component {
               {isOpen && (
                 <DropDown>
                   {this.state.items.map(item => (
-                    <DropDownItem key={item.id}>
+                    <DropDownItem {...getItemProps(item)} key={item.id}>
                       <img width="50" src={item.image} alt={item.title} />
                       {item.title}
                     </DropDownItem>
