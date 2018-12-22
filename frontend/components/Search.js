@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DownShift from 'downshift'
+import Downshift from 'downshift'
 import Router from 'next/router'
 import { ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -37,27 +37,31 @@ export default class AutoComplete extends Component {
   render() {
     return (
       <SearchStyles>
-        <div>
-          <ApolloConsumer>
-            {client => (
-              <input
-                type="search"
-                onChange={e => {
-                  e.persist()
-                  this.handleChange(e, client)
-                }}
-              />
-            )}
-          </ApolloConsumer>
-          <DropDown>
-            {this.state.items.map(item => (
-              <DropDownItem key={item.id}>
-                <img width="50" src={item.image} alt={item.title} />
-                {item.title}
-              </DropDownItem>
-            ))}
-          </DropDown>
-        </div>
+        <Downshift>
+          {({ getInputProps, getItemProps, isOpen, inputValue, highlightedIndex }) => (
+            <div>
+              <ApolloConsumer>
+                {client => (
+                  <input
+                    type="search"
+                    onChange={e => {
+                      e.persist()
+                      this.handleChange(e, client)
+                    }}
+                  />
+                )}
+              </ApolloConsumer>
+              <DropDown>
+                {this.state.items.map(item => (
+                  <DropDownItem key={item.id}>
+                    <img width="50" src={item.image} alt={item.title} />
+                    {item.title}
+                  </DropDownItem>
+                ))}
+              </DropDown>
+            </div>
+          )}
+        </Downshift>
       </SearchStyles>
     )
   }
