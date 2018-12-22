@@ -15,6 +15,9 @@ const SEARCH_ITEMS_QUERY = gql`
     }
   }
 `
+const routeToItem = item => {
+  console.log(item)
+}
 
 export default class AutoComplete extends Component {
   state = {
