@@ -16,7 +16,12 @@ const SEARCH_ITEMS_QUERY = gql`
   }
 `
 const routeToItem = item => {
-  console.log(item)
+  Router.push({
+    pathname: '/item',
+    query: {
+      id: item.id
+    }
+  })
 }
 
 export default class AutoComplete extends Component {
