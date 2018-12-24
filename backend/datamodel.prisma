@@ -50,3 +50,7 @@ type OrderItem {
   quantity: Int! @default(value: 1)
   user: User
 }
+
+type Order {
+
+}
