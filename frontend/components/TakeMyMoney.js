@@ -12,7 +12,13 @@ import User, { CURRENT_USER_QUERY } from './User'
 export default class TakeMyMoney extends Component {
   render() {
     return (
-      <User>{({ data: { me } }) => <StripeCheckout>{this.props.children}</StripeCheckout>}</User>
+      <User>
+        {({ data: { me } }) => (
+          <StripeCheckout amount={calcTotalPrice(me.cart)} name="The Feiner Things">
+            {this.props.children}
+          </StripeCheckout>
+        )}
+      </User>
     )
   }
 }
