@@ -249,7 +249,15 @@ const Mutations = {
     //3. Delete that cart item
     return ctx.db.mutation.deleteCartItem({ where: { id } }, info)
   },
-  async createOrder(parent, args, ctx, info) {}
+  async createOrder(parent, args, ctx, info) {
+    //1. Query the current user and make sure the are signed in
+    //2. recalculate the total for the price to prevent savvy users from changing client side price
+    //3. Create the stripe charge
+    //4. Conver the CartItems to OrderItems
+    //5. Create the Order
+    //6. Clean up - clear the users cart, delete CartItems
+    //7. Return the Order to the client
+  }
 }
 
 module.exports = Mutations
