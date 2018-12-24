@@ -11,6 +11,6 @@ import User, { CURRENT_USER_QUERY } from './User'
 
 export default class TakeMyMoney extends Component {
   render() {
-    return <User>{({ data: { me } }) => <p>checkout</p>}</User>
+    return <User>{({ data: { me } }) => <p>{this.props.children}</p>}</User>
   }
 }
