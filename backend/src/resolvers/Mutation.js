@@ -253,6 +253,25 @@ const Mutations = {
     //1. Query the current user and make sure the are signed in
     const { userId } = ctx.request
     if (!userId) throw new Error('You must be signed in the complete this order.')
+    const user = await ctx.db.query.user(
+      { where: { id: userId } },
+      `{
+        id 
+        name 
+        email 
+        cart {
+          id 
+          quantity 
+          item {
+            title 
+            price 
+            id 
+            description 
+            image 
+          }
+        }
+      }`
+    )
     //2. recalculate the total for the price to prevent savvy users from changing client side price
     //3. Create the stripe charge
     //4. Conver the CartItems to OrderItems
