@@ -4,6 +4,7 @@ const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 const { transport, makeANiceEmail } = require('../mail')
 const { hasPermission } = require('../utils')
+const stripe = require('../stripe')
 
 const tokenAge = 1000 * 60 * 60 * 24 * 365 //1 year
 const Mutations = {
@@ -276,7 +277,8 @@ const Mutations = {
     const amount = user.cart.reduce((tally, cartItem) => {
       return tally + cartItem.item.price * cartItem.quantity
     }, 0)
-    //3. Create the stripe charge
+    //3. Create the stripe charge (turn toekn into $$)
+
     //4. Conver the CartItems to OrderItems
     //5. Create the Order
     //6. Clean up - clear the users cart, delete CartItems
