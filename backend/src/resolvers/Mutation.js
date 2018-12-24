@@ -272,7 +272,10 @@ const Mutations = {
         }
       }`
     )
-    //2. recalculate the total for the price to prevent savvy users from changing client side price
+    //2. Recalculate the total for the price to prevent savvy users from changing client side price
+    const amount = user.cart.reduce((tally, cartItem) => {
+      return tally + cartItem.item.price * cartItem.quantity
+    }, 0)
     //3. Create the stripe charge
     //4. Conver the CartItems to OrderItems
     //5. Create the Order
