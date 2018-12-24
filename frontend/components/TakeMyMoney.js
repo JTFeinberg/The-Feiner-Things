@@ -19,7 +19,11 @@ export default class TakeMyMoney extends Component {
           <StripeCheckout
             amount={calcTotalPrice(me.cart)}
             name="The Feiner Things"
-            description={`Order of ${totalItems(me.cart)}`}>
+            description={`Order of ${totalItems(me.cart)} items`}
+            image={me.cart[0].item && me.cart[0].item.image}
+            stripeKey="pk_test_8x85XwdCVq3ZbLAt4a6uRLIr"
+            currency="USD"
+            email={me.email}>
             {this.props.children}
           </StripeCheckout>
         )}
