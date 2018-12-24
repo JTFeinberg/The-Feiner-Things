@@ -251,6 +251,8 @@ const Mutations = {
   },
   async createOrder(parent, args, ctx, info) {
     //1. Query the current user and make sure the are signed in
+    const { userId } = ctx.request
+    if (!userId) throw new Error('You must be signed in the complete this order.')
     //2. recalculate the total for the price to prevent savvy users from changing client side price
     //3. Create the stripe charge
     //4. Conver the CartItems to OrderItems
