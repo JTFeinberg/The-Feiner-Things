@@ -23,7 +23,8 @@ export default class TakeMyMoney extends Component {
             image={me.cart[0].item && me.cart[0].item.image}
             stripeKey="pk_test_8x85XwdCVq3ZbLAt4a6uRLIr"
             currency="USD"
-            email={me.email}>
+            email={me.email}
+            token={res => this.onToken(res)}>
             {this.props.children}
           </StripeCheckout>
         )}
