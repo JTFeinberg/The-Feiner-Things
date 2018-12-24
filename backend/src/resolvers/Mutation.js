@@ -250,7 +250,7 @@ const Mutations = {
     //3. Delete that cart item
     return ctx.db.mutation.deleteCartItem({ where: { id } }, info)
   },
-  async createOrder(parent, args, ctx, info) {
+  async createOrder(parent, { token }, ctx, info) {
     //1. Query the current user and make sure the are signed in
     const { userId } = ctx.request
     if (!userId) throw new Error('You must be signed in the complete this order.')
@@ -278,7 +278,11 @@ const Mutations = {
       return tally + cartItem.item.price * cartItem.quantity
     }, 0)
     //3. Create the stripe charge (turn toekn into $$)
-
+    const charge = await stripe.charges.create({
+      amount,
+      currency: 'USD',
+      source: token
+    })
     //4. Conver the CartItems to OrderItems
     //5. Create the Order
     //6. Clean up - clear the users cart, delete CartItems
