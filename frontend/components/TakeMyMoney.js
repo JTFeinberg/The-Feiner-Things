@@ -29,6 +29,14 @@ export default class TakeMyMoney extends Component {
   onToken = (res, createOrder) => {
     console.log('This is the tokern')
     console.log(res)
+    //Manually call the mutation once we have the stripe token
+    createOrder({
+      variables: {
+        token: res.id
+      }
+    }).catch(err => {
+      alert(err.message)
+    })
   }
   render() {
     return (
