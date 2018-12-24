@@ -9,9 +9,27 @@ import calcTotalPrice from '../lib/calcTotalPrice'
 import Error from './ErrorMessage'
 import User, { CURRENT_USER_QUERY } from './User'
 
+const CREATE_ORDER_MUTATION = gql`
+  mutation CREATE_ORDER_MUTATION($token: String!) {
+    createOrder(token: $token) {
+      id
+      charge
+      total
+      items {
+        id
+        title
+      }
+    }
+  }
+`
+
 const totalItems = cart => cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)
 
 export default class TakeMyMoney extends Component {
+  onToken = res => {
+    console.log('This is the tokern')
+    console.log(res)
+  }
   render() {
     return (
       <User>
