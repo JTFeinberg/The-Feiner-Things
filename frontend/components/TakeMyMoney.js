@@ -26,7 +26,7 @@ const CREATE_ORDER_MUTATION = gql`
 const totalItems = cart => cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)
 
 export default class TakeMyMoney extends Component {
-  onToken = res => {
+  onToken = (res, createOrder) => {
     console.log('This is the tokern')
     console.log(res)
   }
@@ -46,7 +46,7 @@ export default class TakeMyMoney extends Component {
                 stripeKey="pk_test_8x85XwdCVq3ZbLAt4a6uRLIr"
                 currency="USD"
                 email={me.email}
-                token={res => this.onToken(res)}>
+                token={res => this.onToken(res, createOrder)}>
                 {this.props.children}
               </StripeCheckout>
             )}
