@@ -294,6 +294,14 @@ const Mutations = {
       return orderItem
     })
     //5. Create the Order
+    const order = ctx.db.mutation.createOrder({
+      data: {
+        total: charge.amount,
+        charge: charge.id,
+        items: { create: orderItems },
+        user: { connect: { id: userId } }
+      }
+    })
     //6. Clean up - clear the users cart, delete CartItems
     //7. Return the Order to the client
   }
