@@ -284,6 +284,14 @@ const Mutations = {
       source: token
     })
     //4. Conver the CartItems to OrderItems
+    const orderItems = user.cart.map(cartItem => {
+      const orderItem = {
+        ...cartItem.item,
+        quantity: cartItem.quantity,
+        user: { connect: { id: userId } }
+      }
+      return orderItem
+    })
     //5. Create the Order
     //6. Clean up - clear the users cart, delete CartItems
     //7. Return the Order to the client
