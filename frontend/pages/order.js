@@ -1,7 +1,7 @@
 import React from 'react'
 import PleaseSignIn from '../components/PleaseSignIn'
 
-const Order = props => {
+const OrderPage = props => {
   return (
     <div>
       <PleaseSignIn>
@@ -11,4 +11,4 @@ const Order = props => {
   )
 }
 
-export default Order
+export default OrderPage
