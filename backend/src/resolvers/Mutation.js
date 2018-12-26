@@ -290,6 +290,7 @@ const Mutations = {
         quantity: cartItem.quantity,
         user: { connect: { id: userId } }
       }
+      delete orderItem.id
       return orderItem
     })
     //5. Create the Order
