@@ -303,6 +303,7 @@ const Mutations = {
       }
     })
     //6. Clean up - clear the users cart, delete CartItems
+    const cartItemIds = user.cart.map(cartItem => cartItem.id)
     //7. Return the Order to the client
   }
 }
