@@ -310,6 +310,7 @@ const Mutations = {
       }
     })
     //7. Return the Order to the client
+    return order
   }
 }
 
