@@ -268,7 +268,8 @@ const Mutations = {
             price 
             id 
             description 
-            image 
+            image
+            largeImage
           }
         }
       }`
