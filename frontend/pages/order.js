@@ -1,11 +1,12 @@
 import React from 'react'
 import PleaseSignIn from '../components/PleaseSignIn'
+import Order from '../components/Order'
 
 const OrderPage = props => {
   return (
     <div>
       <PleaseSignIn>
-        <p>This is a single order</p>
+        <Order id={props.query.id} />
       </PleaseSignIn>
     </div>
   )
