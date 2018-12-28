@@ -11,9 +11,21 @@ import OrderStyles from './styles/OrderStyles'
 const SINGLE_ORDER_QUERY = gql`
   mutation SINGLE_ORDER_QUERY($id: ID!) {
     order(id: $id) {
-      items
+      id
       total
       charge
+      createdAt
+      user {
+        id
+      }
+      items {
+        id
+        title
+        description
+        price
+        image
+        quantity
+      }
     }
   }
 `
