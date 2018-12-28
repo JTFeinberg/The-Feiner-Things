@@ -28,7 +28,12 @@ const Query = {
     // 3. If they do, query all the users
     return ctx.db.query.users({}, info)
   },
-  async order(parent, args, ctx, info) {}
+  async order(parent, args, ctx, info) {
+    //1. Make sure the user is logged in
+    //2. Query the current order
+    //3. Check if they have the permissions to see this order
+    //4. Return the order
+  }
 }
 
 module.exports = Query
