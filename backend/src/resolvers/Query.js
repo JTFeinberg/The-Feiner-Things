@@ -49,6 +49,7 @@ const Query = {
       throw new Error('You cannot see this order')
     }
     //4. Return the order
+    return order
   }
 }
 
