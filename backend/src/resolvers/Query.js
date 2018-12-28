@@ -43,6 +43,7 @@ const Query = {
       info
     )
     //3. Check if they have the permissions to see this order
+    const ownsOrder = order.user.id === ctx.request.userId
     //4. Return the order
   }
 }
