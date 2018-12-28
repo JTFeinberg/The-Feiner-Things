@@ -8,6 +8,16 @@ import formatMoney from '../lib/formatMoney'
 import Error from './ErrorMessage'
 import OrderStyles from './styles/OrderStyles'
 
+const SINGLE_ORDER_QUERY = gql`
+  mutation SINGLE_ORDER_QUERY($id: ID!) {
+    order(id: $id) {
+      items
+      total
+      charge
+    }
+  }
+`
+
 export default class Order extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired
