@@ -11,9 +11,12 @@ const Query = {
     if (!ctx.request.userId) {
       return null
     }
-    return ctx.db.query.user({
-      where: { id: ctx.request.userId }
-    }, info)
+    return ctx.db.query.user(
+      {
+        where: { id: ctx.request.userId }
+      },
+      info
+    )
   },
   async users(parent, args, ctx, info) {
     // 1. check if the user is logged in
@@ -24,7 +27,8 @@ const Query = {
     hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE'])
     // 3. If they do, query all the users
     return ctx.db.query.users({}, info)
-  }
+  },
+  async order(parent, args, ctx, info) {}
 }
 
 module.exports = Query
