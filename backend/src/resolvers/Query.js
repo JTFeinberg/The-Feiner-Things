@@ -28,12 +28,20 @@ const Query = {
     // 3. If they do, query all the users
     return ctx.db.query.users({}, info)
   },
-  async order(parent, args, ctx, info) {
+  async order(parent, { id }, ctx, info) {
     //1. Make sure the user is logged in
     if (!ctx.request.userId) {
       throw new Error('You must be logged in!')
     }
     //2. Query the current order
+    const order = await ctx.db.query.order(
+      {
+        where: {
+          id
+        }
+      },
+      info
+    )
     //3. Check if they have the permissions to see this order
     //4. Return the order
   }
