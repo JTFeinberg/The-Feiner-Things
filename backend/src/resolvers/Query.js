@@ -30,6 +30,9 @@ const Query = {
   },
   async order(parent, args, ctx, info) {
     //1. Make sure the user is logged in
+    if (!ctx.request.userId) {
+      throw new Error('You must be logged in!')
+    }
     //2. Query the current order
     //3. Check if they have the permissions to see this order
     //4. Return the order
