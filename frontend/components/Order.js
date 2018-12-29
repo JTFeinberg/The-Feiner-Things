@@ -46,7 +46,14 @@ export default class Order extends Component {
               <Head>
                 <title>Feiner Things - Order {order.id}</title>
               </Head>
-              <p>Order ID: {this.props.id}</p>
+              <p>
+                <span>Order ID:</span>
+                <span>{this.props.id}</span>
+              </p>
+              <p>
+                <span>Charge</span>
+                <span>{order.charge}</span>
+              </p>
             </OrderStyles>
           )
         }}
