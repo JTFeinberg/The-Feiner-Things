@@ -35,6 +35,18 @@ export default class Order extends Component {
     id: PropTypes.string.isRequired
   }
   render() {
-    return <p>Order ID: {this.props.id}</p>
+    return (
+      <Query query={SINGLE_ORDER_QUERY} variables={{ id: this.props.id }}>
+        {({ data, error, loading }) => {
+          if (error) return <Error error={error} />
+          if (loading) return <p>Loading...</p>
+          return (
+            <div>
+              <p>Order ID: {this.props.id}</p>
+            </div>
+          )
+        }}
+      </Query>
+    )
   }
 }
