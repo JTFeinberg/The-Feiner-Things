@@ -62,6 +62,10 @@ export default class Order extends Component {
                 <span>Order Total</span>
                 <span>{formatMoney(order.total)}</span>
               </p>
+              <p>
+                <span>Item Count</span>
+                <span>{order.items.length}</span>
+              </p>
             </OrderStyles>
           )
         }}
