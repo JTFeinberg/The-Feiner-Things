@@ -58,6 +58,10 @@ export default class Order extends Component {
                 <span>Date</span>
                 <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
               </p>
+              <p>
+                <span>Order Total</span>
+                <span>{order.total}</span>
+              </p>
             </OrderStyles>
           )
         }}
