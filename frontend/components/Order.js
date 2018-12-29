@@ -66,6 +66,13 @@ export default class Order extends Component {
                 <span>Item Count</span>
                 <span>{order.items.length}</span>
               </p>
+              <div className="items">
+                {order.items.map(item => (
+                  <div className="order-item" key={item.id}>
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                ))}
+              </div>
             </OrderStyles>
           )
         }}
