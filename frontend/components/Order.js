@@ -42,9 +42,12 @@ export default class Order extends Component {
           if (loading) return <p>Loading...</p>
           const { order } = data
           return (
-            <div>
+            <OrderStyles>
+              <Head>
+                <title>Feiner Things - Order {order.id}</title>
+              </Head>
               <p>Order ID: {this.props.id}</p>
-            </div>
+            </OrderStyles>
           )
         }}
       </Query>
