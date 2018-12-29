@@ -70,6 +70,13 @@ export default class Order extends Component {
                 {order.items.map(item => (
                   <div className="order-item" key={item.id}>
                     <img src={item.image} alt={item.title} />
+                    <div className="image-details">
+                      <h2>{item.title}</h2>
+                      <p>Quantity: {item.quantity}</p>
+                      <p>Each: {formatMoney(item.price)}</p>
+                      <p>Subtotal: {formatMoney(item.price * item.quantity)}</p>
+                      <p>{item.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
