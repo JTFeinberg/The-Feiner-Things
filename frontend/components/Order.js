@@ -54,6 +54,10 @@ export default class Order extends Component {
                 <span>Charge</span>
                 <span>{order.charge}</span>
               </p>
+              <p>
+                <span>Date</span>
+                <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
+              </p>
             </OrderStyles>
           )
         }}
