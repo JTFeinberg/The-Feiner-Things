@@ -72,7 +72,7 @@ export default class Order extends Component {
                     <img src={item.image} alt={item.title} />
                     <div className="image-details">
                       <h2>{item.title}</h2>
-                      <p>Quantity: {item.quantity}</p>
+                      <p>Qty: {item.quantity}</p>
                       <p>Each: {formatMoney(item.price)}</p>
                       <p>Subtotal: {formatMoney(item.price * item.quantity)}</p>
                       <p>{item.description}</p>
