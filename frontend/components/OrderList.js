@@ -26,6 +26,12 @@ const USER_ORDERS_QUERY = gql`
   }
 `
 
+const orderUl = styled.ul`
+  display: grid;
+  grid-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minMax(40%, 1fr));
+`
+
 export default class OrderList extends Component {
   render() {
     return (
