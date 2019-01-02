@@ -59,6 +59,7 @@ export default class OrderList extends Component {
                             )}{' '}
                             Items
                           </p>
+                          <p>{order.items.length} Products</p>
                         </div>
                       </a>
                     </Link>
