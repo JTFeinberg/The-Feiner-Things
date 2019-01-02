@@ -50,7 +50,17 @@ export default class OrderList extends Component {
                         pathname: '/order',
                         query: { id: order.id }
                       }}>
-                      <a>hi</a>
+                      <a>
+                        <div className="order-meta">
+                          <p>
+                            {order.items.reduce(
+                              (tally, orderItem) => tally + orderItem.quantity,
+                              0
+                            )}{' '}
+                            Items
+                          </p>
+                        </div>
+                      </a>
                     </Link>
                   </OrderItemStyles>
                 ))}
