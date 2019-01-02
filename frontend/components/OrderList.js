@@ -61,6 +61,7 @@ export default class OrderList extends Component {
                           </p>
                           <p>{order.items.length} Products</p>
                           <p>{formatDistance(order.createdAt, new Date())}</p>
+                          <p>{formatMoney(order.total)}</p>
                         </div>
                       </a>
                     </Link>
