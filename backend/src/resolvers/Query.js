@@ -56,7 +56,7 @@ const Query = {
     if (!userId) {
       throw new Error('You must be logged in!')
     }
-    return ctx.db.orders(
+    return ctx.db.query.orders(
       {
         where: {
           user: { id: userId }
