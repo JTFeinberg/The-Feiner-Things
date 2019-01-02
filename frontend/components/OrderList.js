@@ -60,6 +60,7 @@ export default class OrderList extends Component {
                             Items
                           </p>
                           <p>{order.items.length} Products</p>
+                          <p>{formatDistance(order.createdAt, new Date())}</p>
                         </div>
                       </a>
                     </Link>
