@@ -7,4 +7,10 @@ describe('formatMoney Function', () => {
     expect(formatMoney(9)).toEqual('$0.09')
     expect(formatMoney(40)).toEqual('$0.40')
   })
+
+  it('leaves cents off for whole dollars', () => {
+    expect(formatMoney(5000)).toEqual('$50')
+    expect(formatMoney(100)).toEqual('$1')
+    expect(formatMoney(50000000)).toEqual('$500,000')
+  })
 })
