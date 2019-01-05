@@ -10,7 +10,7 @@ describe('sample test 101', () => {
     expect(age).toBeGreaterThan(100)
   })
 
-  xit('makes a list of dog names', () => {
+  fit('makes a list of dog names', () => {
     const dogs = ['snickers', 'hugo']
     expect(dogs).toEqual(dogs)
     expect(dogs).toContain('snickers')
