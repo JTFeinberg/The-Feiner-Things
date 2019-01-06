@@ -19,4 +19,9 @@ describe('mocking learning', () => {
     fetchDogs('hugo')
     expect(fetchDogs).toHaveBeenCalledTimes(2)
   })
+
+  it('can create a person', () => {
+    const me = new Person('Jacob', ['pizza', 'pho', 'enchiladas'])
+    expect(me.name).toBe('Jacob')
+  })
 })
