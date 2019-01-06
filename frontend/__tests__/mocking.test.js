@@ -3,7 +3,7 @@ function Person(name, foods) {
   this.foods = foods
 }
 
-Person.prototype.fetchFavFoods = () => {
+Person.prototype.fetchFavFoods = function() {
   return new Promise((resolve, reject) => {
     //   simulate an API
     setTimeout(() => resolve(this.foods), 2000)
@@ -23,5 +23,13 @@ describe('mocking learning', () => {
   it('can create a person', () => {
     const me = new Person('Jacob', ['pizza', 'pho', 'enchiladas'])
     expect(me.name).toBe('Jacob')
+  })
+
+  it('can fetch foods', async () => {
+    const me = new Person('Jacob', ['pizza', 'pho', 'enchiladas'])
+    //mock the fav foods fn
+    me.fetchFavFoods = jest.fn().mockResolvedValue(['sushi', 'ramen'])
+    const favFoods = await me.fetchFavFoods()
+    expect(favFoods).toContain('sushi')
   })
 })
