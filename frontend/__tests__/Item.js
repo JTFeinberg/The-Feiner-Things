@@ -17,5 +17,7 @@ describe('<Item />', () => {
     const PriceTag = wrapper.find('PriceTag')
     expect(PriceTag.children().text()).toBe('$50')
     expect(wrapper.find('Title a').text()).toBe(fakeItem.title)
+    const img = wrapper.find('img')
+    expect(img.props().src).toBe(fakeItem.image)
   })
 })
