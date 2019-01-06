@@ -14,5 +14,7 @@ const fakeItem = {
 describe('<Item />', () => {
   it('renders and displays properly', () => {
     const wrapper = shallow(<ItemComponent item={fakeItem} />)
+    const PriceTag = wrapper.find('PriceTag')
+    expect(PriceTag.children().text()).toBe('$50')
   })
 })
