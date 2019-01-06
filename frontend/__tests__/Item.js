@@ -1,4 +1,6 @@
+import React from 'react'
 import ItemComponent from '../components/Item'
+import { shallow } from 'enzyme'
 
 const fakeItem = {
   id: 'ABC123',
@@ -8,3 +10,9 @@ const fakeItem = {
   image: 'item.jpg',
   largeImage: 'largeItem.jpg'
 }
+
+describe('<Item />', () => {
+  it('renders and displays properly', () => {
+    const wrapper = shallow(<ItemComponent item={fakeItem} />)
+  })
+})
