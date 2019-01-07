@@ -19,5 +19,6 @@ describe('<Item />', () => {
     expect(wrapper.find('Title a').text()).toBe(fakeItem.title)
     const img = wrapper.find('img')
     expect(img.props().src).toBe(fakeItem.image)
+    expect(img.props().alt).toBe(fakeItem.title)
   })
 })
