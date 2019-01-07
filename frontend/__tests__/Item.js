@@ -21,7 +21,6 @@ describe('<Item />', () => {
   })
 
   it('renders the image properly', () => {
-    // const wrapper = shallow(<ItemComponent item={fakeItem} />)
     const img = wrapper.find('img')
     expect(img.props().src).toBe(fakeItem.image)
     expect(img.props().alt).toBe(fakeItem.title)
@@ -29,5 +28,6 @@ describe('<Item />', () => {
 
   it('renders out the buttons properly', () => {
     const buttonList = wrapper.find('.buttonList')
+    expect(buttonList.children()).toHaveLength(3)
   })
 })
