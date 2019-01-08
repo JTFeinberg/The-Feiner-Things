@@ -25,5 +25,6 @@ describe('<SingleItem />', () => {
         <SingleItem id="123" />
       </MockedProvider>
     )
+    expect(wrapper.text()).toContain('Loading...')
   })
 })
