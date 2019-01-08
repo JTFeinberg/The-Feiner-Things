@@ -32,4 +32,25 @@ describe('<SingleItem />', () => {
     expect(toJSON(wrapper.find('img'))).toMatchSnapshot()
     expect(toJSON(wrapper.find('p'))).toMatchSnapshot()
   })
+
+  it('Errors with a not found item', async () => {
+    const mocks = [
+      {
+        request: { query: SINGLE_ITEM_QUERY, variables: { id: '123' } },
+        result: {
+          errors: [{ message: 'Item not found!' }]
+        }
+      }
+    ]
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <SingleItem id="123" />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const item = wrapper.find('[data-test="graphql-error"]')
+    expect(item.text()).toContain('Item not found!')
+    expect(toJSON(item)).toMatchSnapshot()
+  })
 })
