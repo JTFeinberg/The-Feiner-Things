@@ -12,10 +12,7 @@ const fakeItem = {
 }
 
 describe('<Item />', () => {
-  it('renders and matches the snapshot', () => {
-    const price = '$50.35'
-    expect(price).toMatchSnapshot()
-  })
+  it('renders and matches the snapshot', () => {})
   // const wrapper = shallow(<ItemComponent item={fakeItem} />)
 
   // it('renders the price tage and title properly', () => {
