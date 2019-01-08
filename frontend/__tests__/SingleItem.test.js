@@ -29,5 +29,7 @@ describe('<SingleItem />', () => {
     await wait()
     wrapper.update()
     expect(toJSON(wrapper.find('h2'))).toMatchSnapshot()
+    expect(toJSON(wrapper.find('img'))).toMatchSnapshot()
+    expect(toJSON(wrapper.find('p'))).toMatchSnapshot()
   })
 })
