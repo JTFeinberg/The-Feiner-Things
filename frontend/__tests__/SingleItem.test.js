@@ -26,5 +26,8 @@ describe('<SingleItem />', () => {
       </MockedProvider>
     )
     expect(wrapper.text()).toContain('Loading...')
+    await wait()
+    wrapper.update()
+    expect(toJSON(wrapper.find('h2'))).toMatchSnapshot()
   })
 })
