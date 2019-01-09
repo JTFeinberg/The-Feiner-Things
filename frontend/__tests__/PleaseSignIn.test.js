@@ -6,3 +6,5 @@ import { MockedProvider } from 'react-apollo/test-utils'
 import PleaseSignIn from '../components/PleaseSignIn'
 import { CURRENT_USER_QUERY } from '../components/User '
 import { fakeUser } from '../lib/testUtils'
+
+const notSignedInMOcks = [{}]
