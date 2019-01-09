@@ -14,7 +14,7 @@ const notSignedInMocks = [
   }
 ]
 
-const signedInMock = [
+const signedInMocks = [
   {
     request: { query: CURRENT_USER_QUERY },
     result: { data: { me: fakeUser() } }
@@ -33,5 +33,13 @@ describe('<PleaseSignIn />', () => {
     expect(wrapper.text()).toContain('Please sign in before continuing')
     const SignIn = wrapper.find('Signin')
     expect(SignIn.exists()).toBe(true)
+  })
+
+  it('renders the child component if the user is signed in', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={signedInMocks}>
+        <PleaseSignIn />
+      </MockedProvider>
+    )
   })
 })
