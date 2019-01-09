@@ -36,7 +36,7 @@ describe('<PleaseSignIn />', () => {
   })
 
   it('renders the child component if the user is signed in', async () => {
-    const SignedIn = <p>You are signed in!</p>
+    const SignedIn = () => <p>You are signed in!</p>
     const wrapper = mount(
       <MockedProvider mocks={signedInMocks}>
         <PleaseSignIn>
@@ -46,5 +46,6 @@ describe('<PleaseSignIn />', () => {
     )
     await wait()
     wrapper.update()
+    console.log(wrapper.debug())
   })
 })
