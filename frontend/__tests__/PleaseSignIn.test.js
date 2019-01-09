@@ -7,4 +7,16 @@ import PleaseSignIn from '../components/PleaseSignIn'
 import { CURRENT_USER_QUERY } from '../components/User '
 import { fakeUser } from '../lib/testUtils'
 
-const notSignedInMOcks = [{}]
+const notSignedInMOcks = [
+  {
+    request: { query: CURRENT_USER_QUERY },
+    result: { data: { me: null } }
+  }
+]
+
+const signedInMock = [
+  {
+    request: { query: CURRENT_USER_QUERY },
+    result: { data: { me: fakeUser() } }
+  }
+]
