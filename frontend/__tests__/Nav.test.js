@@ -33,4 +33,16 @@ describe('<Nav />', () => {
     const nav = wrapper.find('[data-test="nav"]')
     expect(toJSON(nav)).toMatchSnapshot()
   })
+
+  it('redners a full nav when signed out', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={signedInMocks}>
+        <Nav />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const nav = wrapper.find('[data-test="nav"]')
+    expect(toJSON(nav)).toMatchSnapshot()
+  })
 })
