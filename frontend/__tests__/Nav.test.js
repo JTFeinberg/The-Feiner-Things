@@ -20,3 +20,13 @@ const signedInMocks = [
     result: { data: { me: fakeUser() } }
   }
 ]
+
+describe('<Nav />', () => {
+  it('redners a minimal nav when signed out', async () => {
+    const wrapper = (
+      <MockedProvider mocks={notSignedInMocks}>
+        <Nav />
+      </MockedProvider>
+    )
+  })
+})
