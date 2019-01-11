@@ -27,3 +27,11 @@ exports[`<Nav /> redners a minimal nav when signed out 1`] = `
   </Link>
 </ul>
 `;
+
+exports[`<Nav /> renders the amount of items in the cart 1`] = `
+<div
+  className="count CartCount__Dot-egg65q-1 jXUeCZ"
+>
+  9
+</div>
+`;
