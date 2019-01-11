@@ -5,7 +5,7 @@ import wait from 'waait'
 import { MockedProvider } from 'react-apollo/test-utils'
 import Nav from '../components/Nav'
 import { CURRENT_USER_QUERY } from '../components/User'
-import { fakeUser } from '../lib/testUtils'
+import { fakeUser, fakeCartItem } from '../lib/testUtils'
 
 const notSignedInMocks = [
   {
@@ -18,6 +18,20 @@ const signedInMocks = [
   {
     request: { query: CURRENT_USER_QUERY },
     result: { data: { me: fakeUser() } }
+  }
+]
+
+const signedInMocksWithCartItems = [
+  {
+    request: { query: CURRENT_USER_QUERY },
+    result: {
+      data: {
+        me: {
+          ...fakeUser(),
+          cart: [fakeCartItem(), fakeCartItem(), fakeCartItem()]
+        }
+      }
+    }
   }
 ]
 
@@ -37,6 +51,18 @@ describe('<Nav />', () => {
   it('redners a full nav when signed out', async () => {
     const wrapper = mount(
       <MockedProvider mocks={signedInMocks}>
+        <Nav />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const nav = wrapper.find('[data-test="nav"]')
+    expect(toJSON(nav)).toMatchSnapshot()
+  })
+
+  it('renders the amount of items in the cart', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={signedInMocksWithCartItems}>
         <Nav />
       </MockedProvider>
     )
