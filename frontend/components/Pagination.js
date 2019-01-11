@@ -39,7 +39,8 @@ const Pagination = ({ page }) => {
               <a className="prev" aria-disabled={page <= 1}>{`<< Prev`}</a>
             </Link>
             <p>
-              Page {page} of {pages}
+              Page {page} of
+              <span className="totalPages">{pages}</span>
             </p>
             <p>{count} Items Total</p>
             <Link

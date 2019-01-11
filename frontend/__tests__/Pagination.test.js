@@ -48,5 +48,6 @@ describe('<Pagination />', () => {
     )
     await wait()
     wrapper.update()
+    // expect(wrapper.find())
   })
 })
