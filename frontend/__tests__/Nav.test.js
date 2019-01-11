@@ -23,12 +23,14 @@ const signedInMocks = [
 
 describe('<Nav />', () => {
   it('redners a minimal nav when signed out', async () => {
-    const wrapper = (
+    const wrapper = mount(
       <MockedProvider mocks={notSignedInMocks}>
         <Nav />
       </MockedProvider>
     )
     await wait()
     wrapper.update()
+    const nav = wrapper.find('[data-test="nav"]')
+    expect(toJSON(nav)).toMatchSnapshot()
   })
 })
