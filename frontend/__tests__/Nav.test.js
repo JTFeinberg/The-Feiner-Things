@@ -59,7 +59,9 @@ describe('<Nav />', () => {
     const nav = wrapper.find('ul[data-test="nav"]')
     expect(nav.children().length).toBe(6)
     expect(nav.text()).toContain('Sign Out')
-    // expect(toJSON(nav)).toMatchSnapshot()
+    expect(nav.text()).toContain('Sell')
+    expect(nav.text()).toContain('Orders')
+    expect(nav.text()).toContain('Account')
   })
 
   it('renders the amount of items in the cart', async () => {
