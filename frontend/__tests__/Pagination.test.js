@@ -64,6 +64,16 @@ describe('<Pagination />', () => {
     expect(wrapper.find('a.prev').prop('aria-disabled')).toEqual(true)
     expect(wrapper.find('a.next').prop('aria-disabled')).toEqual(false)
   })
-  it('disables next button on last page', async () => {})
+  it('disables next button on last page', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={makeMocksFor(18)}>
+        <Pagination page={5} />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    expect(wrapper.find('a.prev').prop('aria-disabled')).toEqual(false)
+    expect(wrapper.find('a.next').prop('aria-disabled')).toEqual(true)
+  })
   it('enables all buttons on middle page', async () => {})
 })
