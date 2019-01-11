@@ -28,5 +28,7 @@ describe('<Nav />', () => {
         <Nav />
       </MockedProvider>
     )
+    await wait()
+    wrapper.update()
   })
 })
