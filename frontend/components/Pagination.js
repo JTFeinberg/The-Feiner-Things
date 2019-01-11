@@ -21,11 +21,10 @@ const Pagination = ({ page }) => {
     <Query query={PAGINATION_QUERY}>
       {({ data, loading, error }) => {
         if (loading) return <p>Loading...</p>
-        console.log(error)
         const { count } = data.itemsConnection.aggregate
         const pages = Math.ceil(count / perPage)
         return (
-          <PaginationStyles>
+          <PaginationStyles data-test="pagination">
             <Head>
               <title>
                 Feiner Things – page {page} of {pages}
