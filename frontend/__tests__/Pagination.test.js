@@ -52,4 +52,18 @@ describe('<Pagination />', () => {
     const pagination = wrapper.find('[data-test="pagination"]')
     expect(toJSON(pagination)).toMatchSnapshot()
   })
+
+  it('disables prev button on first page', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={makeMocksFor(18)}>
+        <Pagination page={1} />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    expect(wrapper.find('a.prev').prop('aria-disabled')).toEqual(true)
+    expect(wrapper.find('a.next').prop('aria-disabled')).toEqual(false)
+  })
+  it('disables next button on last page', async () => {})
+  it('enables all buttons on middle page', async () => {})
 })
