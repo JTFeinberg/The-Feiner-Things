@@ -48,6 +48,6 @@ describe('<Pagination />', () => {
     )
     await wait()
     wrapper.update()
-    // expect(wrapper.find())
+    expect(wrapper.find('.totalPages').text()).toEqual('5')
   })
 })
