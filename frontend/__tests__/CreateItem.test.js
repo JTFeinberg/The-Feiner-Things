@@ -14,3 +14,13 @@ global.fetch = jest.fn().mockResolvedValue({
     eager: [{ secure_url: dogImage }]
   })
 })
+
+describe('<CreateItem />', () => {
+  it('renders and matches snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider>
+        <CreateItem />
+      </MockedProvider>
+    )
+  })
+})
