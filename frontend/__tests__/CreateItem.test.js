@@ -22,5 +22,7 @@ describe('<CreateItem />', () => {
         <CreateItem />
       </MockedProvider>
     )
+    const form = wrapper.find('form[data-test="form"]')
+    expect(toJSON(form)).toMatchSnapshot()
   })
 })
