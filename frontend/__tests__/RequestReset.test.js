@@ -28,4 +28,16 @@ describe('<RequestReset />', () => {
     const form = wrapper.find('form[data-test="form"]')
     expect(toJSON(form)).toMatchSnapshot()
   })
+
+  it('calls the mutation', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <RequestReset />
+      </MockedProvider>
+    )
+    //simulate typing an email
+    wrapper
+      .find('input')
+      .simulate('change', { target: { name: 'email', value: 'JacobFeinberg92@gmail.com' } })
+  })
 })
