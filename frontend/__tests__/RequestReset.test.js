@@ -17,3 +17,13 @@ const mocks = [
     }
   }
 ]
+
+describe('<RequestReset />', () => {
+  it('renders and matches the snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider>
+        <RequestReset />
+      </MockedProvider>
+    )
+  })
+})
