@@ -39,5 +39,7 @@ describe('<RequestReset />', () => {
     wrapper
       .find('input')
       .simulate('change', { target: { name: 'email', value: 'JacobFeinberg92@gmail.com' } })
+    //submit form
+    wrapper.find('form').simulate('submit')
   })
 })
