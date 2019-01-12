@@ -41,5 +41,8 @@ describe('<RequestReset />', () => {
       .simulate('change', { target: { name: 'email', value: 'JacobFeinberg92@gmail.com' } })
     //submit form
     wrapper.find('form').simulate('submit')
+    await wait()
+    wrapper.update()
+    expect(wrapper.find('p').text()).toContain('Success! Check your email for a reset link!')
   })
 })
