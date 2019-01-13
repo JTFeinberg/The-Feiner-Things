@@ -104,5 +104,6 @@ describe('<CreateItem />', () => {
       .simulate('change', { target: { value: item.description, name: 'description' } })
     //mock the router
     Router.router = { push: jest.fn() }
+    wrapper.find('form').simulate('submit')
   })
 })
