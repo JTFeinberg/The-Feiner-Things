@@ -3,6 +3,7 @@ import { mount } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import wait from 'waait'
 import { MockedProvider } from 'react-apollo/test-utils'
+import { ApolloConsumer } from 'react-apollo'
 import Signup, { SIGNUP_MUTATION } from '../components/Signup'
 import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser } from '../lib/testUtils'
@@ -45,5 +46,19 @@ describe('<Signup />', () => {
       </MockedProvider>
     )
     expect(toJSON(wrapper.find('form'))).toMatchSnapshot()
+  })
+
+  it('calls the mutation properly', async () => {
+    let apolloClient
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <ApolloConsumer>
+          {client => {
+            apolloClient = client
+            return <Signup />
+          }}
+        </ApolloConsumer>
+      </MockedProvider>
+    )
   })
 })
