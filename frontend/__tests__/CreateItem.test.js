@@ -102,5 +102,7 @@ describe('<CreateItem />', () => {
     wrapper
       .find('#description')
       .simulate('change', { target: { value: item.description, name: 'description' } })
+    //mock the router
+    Router.router = { push: jest.fn() }
   })
 })
