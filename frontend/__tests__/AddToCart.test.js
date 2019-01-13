@@ -7,6 +7,7 @@ import { ApolloConsumer } from 'react-apollo'
 import AddToCart, { ADD_TO_CART_MUTATION } from '../components/AddToCart'
 import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser, fakeCartItem } from '../lib/testUtils'
+import { ApolloClient } from 'apollo-boost'
 
 const mocks = [
   {
@@ -46,5 +47,25 @@ describe('<AddToCart />', () => {
     await wait()
     wrapper.update()
     expect(toJSON(wrapper.find('button'))).toMatchSnapshot()
+  })
+
+  it('adds and item to cart when clicked', async () => {
+    let apolloClient
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <ApolloConsumer>
+          {client => {
+            apolloClient = client
+            return <AddToCart id="abc123" />
+          }}
+        </ApolloConsumer>
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const {
+      data: { me }
+    } = await apolloClient.query({ query: CURRENT_USER_QUERY })
+    expect(me.cart).toHaveLength(0)
   })
 })
