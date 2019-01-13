@@ -106,5 +106,6 @@ describe('<CreateItem />', () => {
     Router.router = { push: jest.fn() }
     wrapper.find('form').simulate('submit')
     await wait(50)
+    expect(Router.router.push).toHaveBeenCalled()
   })
 })
