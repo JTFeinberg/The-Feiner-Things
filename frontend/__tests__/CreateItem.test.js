@@ -107,5 +107,6 @@ describe('<CreateItem />', () => {
     wrapper.find('form').simulate('submit')
     await wait(50)
     expect(Router.router.push).toHaveBeenCalled()
+    expect(Router.router.push).toHaveBeenCalledWith({ pathname: '/item', query: { id: 'abc123' } })
   })
 })
