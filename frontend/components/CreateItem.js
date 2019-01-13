@@ -46,13 +46,10 @@ export default class CreateItem extends Component {
     data.append('file', files[0])
     //Argument needed by cloudinary
     data.append('upload_preset', 'feinerThings')
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/dbafptufn/image/upload',
-      {
-        method: 'POST',
-        body: data
-      }
-    )
+    const res = await fetch('https://api.cloudinary.com/v1_1/dbafptufn/image/upload', {
+      method: 'POST',
+      body: data
+    })
     const file = await res.json()
     console.log(file)
     this.setState({
@@ -66,6 +63,7 @@ export default class CreateItem extends Component {
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { loading, error }) => (
           <Form
+            data-test="form"
             onSubmit={async e => {
               //Stop form from submitting
               e.preventDefault()
