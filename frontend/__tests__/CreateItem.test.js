@@ -35,5 +35,6 @@ describe('<CreateItem />', () => {
     const input = wrapper.find('input[type="file"]')
     input.simulate('change', { target: { files: ['fakeDog.jpg'] } })
     await wait()
+    const component = wrapper.find('CreateItem').instance()
   })
 })
