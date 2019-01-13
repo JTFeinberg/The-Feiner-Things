@@ -39,5 +39,6 @@ describe('<CreateItem />', () => {
     expect(component.state.image).toEqual(dogImage)
     expect(component.state.largeImage).toEqual(dogImage)
     expect(global.fetch).toHaveBeenCalled()
+    global.fetch.mockReset()
   })
 })
