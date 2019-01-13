@@ -8,6 +8,10 @@ import Signup, { SIGNUP_MUTATION } from '../components/Signup'
 import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser } from '../lib/testUtils'
 
+function type(wrapper, name, value) {
+  wrapper.find(`input[name="${name}"]`).simulate('change', { target: { name, value } })
+}
+
 const me = fakeUser()
 const mocks = [
   //signup mock mutation
@@ -60,5 +64,7 @@ describe('<Signup />', () => {
         </ApolloConsumer>
       </MockedProvider>
     )
+    await wait()
+    wrapper.update()
   })
 })
