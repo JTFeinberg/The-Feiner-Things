@@ -35,3 +35,16 @@ const mocks = [
     }
   }
 ]
+
+describe('<AddToCart />', () => {
+  it('renders and matches the snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <AddToCart id="abc123" />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    expect(toJSON(wrapper.find('button'))).toMatchSnapshot()
+  })
+})
