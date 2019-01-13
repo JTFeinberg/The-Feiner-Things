@@ -70,5 +70,6 @@ describe('<Signup />', () => {
     type(wrapper, 'email', me.email)
     type(wrapper, 'password', '123')
     wrapper.update()
+    wrapper.find('form').simulate('submit')
   })
 })
