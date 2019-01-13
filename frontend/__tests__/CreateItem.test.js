@@ -63,4 +63,35 @@ describe('<CreateItem />', () => {
 
     expect(wrapper.find('CreateItem').instance().state).toMatchObject(testItem)
   })
+
+  it('creates an item when the form is submitted', async () => {
+    const item = fakeItem()
+    const mocks = [
+      {
+        request: {
+          query: CREATE_ITEM_MUTATION,
+          variables: {
+            title: item.title,
+            description: item.description,
+            image: '',
+            largeImage: '',
+            price: item.price
+          }
+        },
+        result: {
+          data: {
+            createItem: {
+              ...item,
+              __typename: 'Item'
+            }
+          }
+        }
+      }
+    ]
+    // const wrapper = mount(
+    //   <MockedProvider  >
+    //     <CreateItem />
+    //   </MockedProvider>
+    // )
+  })
 })
