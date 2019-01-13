@@ -36,5 +36,8 @@ describe('<CreateItem />', () => {
     input.simulate('change', { target: { files: ['fakeDog.jpg'] } })
     await wait()
     const component = wrapper.find('CreateItem').instance()
+    expect(component.state.image).toEqual(dogImage)
+    expect(component.state.largeImage).toEqual(dogImage)
+    expect(global.fetch).toHaveBeenCalled()
   })
 })
