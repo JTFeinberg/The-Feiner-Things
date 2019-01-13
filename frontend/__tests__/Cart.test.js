@@ -24,3 +24,17 @@ const mocks = [
     result: { data: { cartOpen: true } }
   }
 ]
+
+describe('<Cart />', () => {
+  it('renders and matches snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <Cart />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    expect(toJSON(wrapper.find('header'))).toMatchSnapshot()
+    expect(wrapper.find('CartItem')).toHaveLength(1)
+  })
+})
