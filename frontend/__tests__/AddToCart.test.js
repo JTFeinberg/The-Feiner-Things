@@ -98,5 +98,6 @@ describe('<AddToCart />', () => {
     await wait()
     wrapper.update()
     expect(wrapper.text()).toContain('Add To Cart')
+    wrapper.find('button').simulate('click')
   })
 })
