@@ -25,4 +25,15 @@ describe('<CreateItem />', () => {
     const form = wrapper.find('form[data-test="form"]')
     expect(toJSON(form)).toMatchSnapshot()
   })
+
+  it('uploads a file when changed', async () => {
+    const wrapper = mount(
+      <MockedProvider>
+        <CreateItem />
+      </MockedProvider>
+    )
+    const input = wrapper.find('input[type="file"]')
+    input.simulate('change', { target: { files: ['fakeDog.jpg'] } })
+    await wait()
+  })
 })
