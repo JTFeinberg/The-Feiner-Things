@@ -5,6 +5,7 @@ import wait from 'waait'
 import { MockedProvider } from 'react-apollo/test-utils'
 import CreateItem, { CREATE_ITEM_MUTATION } from '../components/CreateItem'
 import { fakeItem } from '../lib/testUtils'
+import Router from 'next/router'
 
 const dogImage = 'https://dog.com/dog.jpg'
 //mock the global fetch API
@@ -88,10 +89,18 @@ describe('<CreateItem />', () => {
         }
       }
     ]
-    // const wrapper = mount(
-    //   <MockedProvider  >
-    //     <CreateItem />
-    //   </MockedProvider>
-    // )
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <CreateItem />
+      </MockedProvider>
+    )
+    //simulate someone filling out the form
+    wrapper.find('#title').simulate('change', { target: { value: item.title, name: 'title' } })
+    wrapper
+      .find('#price')
+      .simulate('change', { target: { value: item.price, name: 'price', type: 'number' } })
+    wrapper
+      .find('#description')
+      .simulate('change', { target: { value: item.description, name: 'description' } })
   })
 })
