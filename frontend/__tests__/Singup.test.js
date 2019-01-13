@@ -8,4 +8,26 @@ import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser } from '../lib/testUtils'
 
 const me = fakeUser()
-const mocks = []
+const mocks = [
+  //signup mock mutation
+  {
+    request: {
+      query: SIGNUP_MUTATION,
+      variables: {
+        email: me.email,
+        name: me.name,
+        password: '123'
+      }
+    },
+    result: {
+      data: {
+        signup: {
+          __typename: 'User',
+          id: 'abc123',
+          email: me.email,
+          name: me.name
+        }
+      }
+    }
+  }
+]
