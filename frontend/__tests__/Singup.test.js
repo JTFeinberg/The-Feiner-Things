@@ -36,3 +36,14 @@ const mocks = [
     result: { data: { me } }
   }
 ]
+
+describe('<Signup />', () => {
+  it('renders and matches snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider>
+        <Signup />
+      </MockedProvider>
+    )
+    expect(toJSON(wrapper.find('form'))).toMatchSnapshot()
+  })
+})
