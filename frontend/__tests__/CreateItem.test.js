@@ -41,4 +41,19 @@ describe('<CreateItem />', () => {
     expect(global.fetch).toHaveBeenCalled()
     global.fetch.mockReset()
   })
+
+  it('handles state updating', async () => {
+    const wrapper = mount(
+      <MockedProvider>
+        <CreateItem />
+      </MockedProvider>
+    )
+    wrapper.find('#title').simulate('change', { target: { value: 'Testing', name: 'title' } })
+    // wrapper
+    //   .find('#price')
+    //   .simulate('change', { target: { value: '50000', name: 'price', type: 'number' } })
+    // wrapper
+    //   .find('#description')
+    //   .simulate('change', { target: { value: 'This is a really nice item.', name: 'description' } })
+  })
 })
