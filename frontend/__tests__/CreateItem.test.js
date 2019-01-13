@@ -48,12 +48,19 @@ describe('<CreateItem />', () => {
         <CreateItem />
       </MockedProvider>
     )
-    wrapper.find('#title').simulate('change', { target: { value: 'Testing', name: 'title' } })
+    const testItem = {
+      title: 'Testing',
+      price: 50000,
+      description: 'This is a really nice item.'
+    }
+    wrapper.find('#title').simulate('change', { target: { value: testItem.title, name: 'title' } })
     wrapper
       .find('#price')
-      .simulate('change', { target: { value: '50000', name: 'price', type: 'number' } })
+      .simulate('change', { target: { value: testItem.price, name: 'price', type: 'number' } })
     wrapper
       .find('#description')
-      .simulate('change', { target: { value: 'This is a really nice item.', name: 'description' } })
+      .simulate('change', { target: { value: testItem.description, name: 'description' } })
+
+    expect(wrapper.find('CreateItem').instance().state).toMatchObject(testItem)
   })
 })
