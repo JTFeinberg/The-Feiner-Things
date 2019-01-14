@@ -9,3 +9,5 @@ import { ApolloConsumer } from 'react-apollo'
 import TakeMyMoney, { CREATE_ORDER_MUTATION } from '../components/TakeMyMoney'
 import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser, fakeCartItem } from '../lib/testUtils'
+
+Router.router = { push() {} }
