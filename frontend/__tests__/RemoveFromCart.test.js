@@ -7,7 +7,6 @@ import { ApolloConsumer } from 'react-apollo'
 import RemoveFromCart, { REMOVE_FROM_CART_MUTATION } from '../components/RemoveFromCart'
 import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser, fakeCartItem } from '../lib/testUtils'
-import { wrap } from 'module'
 
 const mocks = [
   {
