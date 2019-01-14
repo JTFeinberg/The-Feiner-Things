@@ -99,7 +99,9 @@ describe('<TakeMyMoney />', () => {
       }
     })
     const component = wrapper.find('TakeMyMoney').instance()
+    Router.router.push = jest.fn()
     //manually call that onToken method
     component.onToken({ id: 'abc123' }, createOrderMock)
+    await wait()
   })
 })
