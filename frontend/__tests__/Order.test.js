@@ -19,3 +19,17 @@ const mocks = [
     }
   }
 ]
+
+describe('<Order />', () => {
+  it('renders and matches snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <Order id="ord123" />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const order = wrapper.find('div[data-test="order"]')
+    expect(toJSON(order)).toMatchSnapshot()
+  })
+})
