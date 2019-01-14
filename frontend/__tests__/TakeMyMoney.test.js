@@ -52,10 +52,23 @@ describe('<TakeMyMoney />', () => {
         <TakeMyMoney />
       </MockedProvider>
     )
+    await wait()
+    wrapper.update()
     const component = wrapper.find('TakeMyMoney').instance()
     //manually call that onToken method
     component.onToken({ id: 'abc123' }, createOrderMock)
     expect(createOrderMock).toHaveBeenCalled()
     expect(createOrderMock).toHaveBeenCalledWith({ variables: { token: 'abc123' } })
+  })
+
+  it('turns the progress bar on', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <TakeMyMoney />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    NProgress.start = jest.fn()
   })
 })
