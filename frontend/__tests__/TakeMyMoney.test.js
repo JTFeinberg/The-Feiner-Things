@@ -25,3 +25,17 @@ const mocks = [
     }
   }
 ]
+
+describe('<TakeMyMoney />', () => {
+  it('renders and matches the snapshot', async () => {
+    const wrapper = mount(
+      <MockedProvider mocks={mocks}>
+        <TakeMyMoney />
+      </MockedProvider>
+    )
+    await wait()
+    wrapper.update()
+    const checkoutButton = wrapper.find('ReactStripeCheckout')
+    expect(toJSON(checkoutButton)).toMatchSnapshot()
+  })
+})
