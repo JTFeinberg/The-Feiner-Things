@@ -103,5 +103,7 @@ describe('<TakeMyMoney />', () => {
     //manually call that onToken method
     component.onToken({ id: 'abc123' }, createOrderMock)
     await wait()
+    expect(Router.router.push).toHaveBeenCalled()
+    expect(Router.router.push).toHaveBeenCalledWith({ pathname: '/order', query: { id: 'xyz789' } })
   })
 })
