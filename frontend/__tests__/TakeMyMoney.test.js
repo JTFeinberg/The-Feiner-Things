@@ -70,5 +70,16 @@ describe('<TakeMyMoney />', () => {
     await wait()
     wrapper.update()
     NProgress.start = jest.fn()
+    const createOrderMock = jest.fn().mockResolvedValue({
+      data: {
+        createOrder: {
+          id: 'xyz789'
+        }
+      }
+    })
+    const component = wrapper.find('TakeMyMoney').instance()
+    //manually call that onToken method
+    component.onToken({ id: 'abc123' }, createOrderMock)
+    expect(NProgress.start).toHaveBeenCalled()
   })
 })

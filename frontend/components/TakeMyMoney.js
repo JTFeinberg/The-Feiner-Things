@@ -28,8 +28,6 @@ const totalItems = cart => cart.reduce((tally, cartItem) => tally + cartItem.qua
 export default class TakeMyMoney extends Component {
   onToken = async (res, createOrder) => {
     NProgress.start()
-    console.log('This is the tokern')
-    console.log(res)
     //Manually call the mutation once we have the stripe token
     const order = await createOrder({
       variables: {
