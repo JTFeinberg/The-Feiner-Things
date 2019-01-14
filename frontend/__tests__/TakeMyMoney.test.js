@@ -55,5 +55,7 @@ describe('<TakeMyMoney />', () => {
     const component = wrapper.find('TakeMyMoney').instance()
     //manually call that onToken method
     component.onToken({ id: 'abc123' }, createOrderMock)
+    expect(createOrderMock).toHaveBeenCalled()
+    expect(createOrderMock).toHaveBeenCalledWith({ variables: { token: 'abc123' } })
   })
 })
