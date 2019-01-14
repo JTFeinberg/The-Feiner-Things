@@ -39,7 +39,7 @@ describe('<TakeMyMoney />', () => {
     expect(toJSON(checkoutButton)).toMatchSnapshot()
   })
 
-  it('creates an order ontoken', async () => {
+  it('creates an order onToken', async () => {
     const createOrderMock = jest.fn().mockResolvedValue({
       data: {
         createOrder: {
@@ -52,5 +52,8 @@ describe('<TakeMyMoney />', () => {
         <TakeMyMoney />
       </MockedProvider>
     )
+    const component = wrapper.find('TakeMyMoney').instance()
+    //manually call that onToken method
+    component.onToken({ id: 'abc123' }, createOrderMock)
   })
 })
