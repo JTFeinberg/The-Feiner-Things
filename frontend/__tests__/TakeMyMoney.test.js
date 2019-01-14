@@ -11,3 +11,17 @@ import { CURRENT_USER_QUERY } from '../components/User'
 import { fakeUser, fakeCartItem } from '../lib/testUtils'
 
 Router.router = { push() {} }
+
+const mocks = [
+  {
+    request: { query: CURRENT_USER_QUERY },
+    result: {
+      data: {
+        me: {
+          ...fakeUser(),
+          cart: [fakeCartItem()]
+        }
+      }
+    }
+  }
+]
